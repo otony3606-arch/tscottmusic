@@ -23,7 +23,7 @@
     .hero-inner{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:42px;align-items:center}
     .hero-copy{min-width:0}
     .hero-photo{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#0d0d0d;box-shadow:0 24px 60px rgba(0,0,0,.35)}
-    .hero-photo img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center top}
+    .hero-photo img{display:block;width:100%;height:auto;object-fit:cover;object-position:center top}
     .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:800}
     h1{font-size:clamp(46px,8vw,88px);line-height:.96;margin:14px 0 20px;max-width:920px}
     .sub{font-size:20px;color:var(--muted);max-width:800px}
@@ -62,17 +62,29 @@
     .shop-btn{width:100%;margin-top:12px;padding:11px 12px;background:transparent;color:var(--text);border:1px solid #4a4a4a;border-radius:11px;font-weight:900;cursor:pointer}
     .shop-btn:hover{border-color:var(--accent);color:var(--accent)}
     .review-note{border:1px solid #4b4028;background:#17140e;color:#d9caa6;border-radius:14px;padding:14px 16px;margin-bottom:26px;font-size:13px}
+    .film-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .film-card{display:grid;grid-template-columns:104px minmax(0,1fr);gap:15px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;min-height:132px}
+    .film-cover-link{display:block;border-radius:12px;overflow:hidden;border:1px solid #343434;background:#0b0b0b;line-height:0}
+    .film-cover{display:block;width:104px;height:104px;object-fit:cover;transition:transform .18s ease}
+    .film-cover-link:hover .film-cover{transform:scale(1.035)}
+    .film-copy{min-width:0}
+    .film-copy b{display:block;font-size:18px;line-height:1.2;margin-bottom:6px}
+    .film-copy span{display:block;color:var(--muted);font-size:14px;line-height:1.35}
+    .film-source{display:inline-flex;align-items:center;gap:5px;margin-top:10px;color:var(--accent);font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
     footer{padding:40px 0;color:var(--muted);border-top:1px solid var(--line)}
     @media(max-width:820px){
-      .grid,.featured,.track-grid,.hero-inner{grid-template-columns:1fr}
+      .grid,.featured,.track-grid,.hero-inner,.film-grid{grid-template-columns:1fr}
       .navlinks{display:none}
       .hero{padding-top:62px}
       .hero-grid{grid-template-columns:1fr}
-      .hero-photo{max-width:520px}
+      .hero-photo{max-width:460px;margin:0 auto}
       .store-intro{display:block}
       .store-count{margin-top:10px}
     }
     @media(max-width:520px){
+      .film-card{grid-template-columns:88px minmax(0,1fr);gap:12px;padding:12px;min-height:112px}
+      .film-cover{width:88px;height:88px}
+      .film-copy b{font-size:16px}
       .license-row{grid-template-columns:1fr}
       .license-row div{border-right:0;border-bottom:1px solid var(--line)}
       .license-row div:last-child{border-bottom:0}
@@ -97,7 +109,7 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap hero-grid">
+  <div class="wrap hero-inner">
     <div class="hero-copy">
       <div class="eyebrow">Producer • Songwriter • Executive Producer</div>
       <h1>Major records. Film placements. Music built to move.</h1>
@@ -534,14 +546,93 @@
   <div class="wrap">
     <h2>Film &amp; Soundtrack Placements</h2>
     <p class="section-copy">Selected placements connecting the catalog with major motion pictures and soundtrack releases.</p>
-    <div class="featured">
-      <div class="feature"><b>Like Mike — Original Motion Picture Soundtrack</b><span>Solange feat. B2K — “Dance With You”</span><div class="credit-role">Producer as Platinum Status • Songwriter as Tony Oliver</div></div>
-      <div class="feature"><b>You Got Served — Original Motion Picture Soundtrack</b><span>Jhené Aiko feat. B2K — “Happy”</span><div class="credit-role">Producer • Composer</div></div>
-      <div class="feature"><b>You Got Served</b><span>Feature film / soundtrack credit.</span><div class="credit-role">Film &amp; Soundtrack</div></div>
-      <div class="feature"><b>IMx — “First Time”</b><span><i>Freddy vs. Jason</i></span></div>
-      <div class="feature"><b>Young Rome — “After Party”</b><span><i>The 40-Year-Old Virgin</i></span></div>
-      <div class="feature"><b>IMx — “Ain’t No Need for That”</b><span><i>The Adventures of Pluto Nash</i></span></div>
-      <div class="feature"><b>IMx — “Tears”</b><span><i>All About the Benjamins</i></span></div>
+
+    <div class="film-grid">
+
+      <article class="film-card">
+        <a class="film-cover-link" href="https://music.apple.com/us/album/b2k-presents-you-got-served-soundtrack/1308962767" target="_blank" rel="noopener">
+          <img class="film-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/17/ec/e2/17ece29a-c80e-6536-f685-39e4e6ac3d45/888880792532.jpg/600x600bf-60.jpg" alt="You Got Served soundtrack cover" loading="lazy" decoding="async">
+        </a>
+        <div class="film-copy">
+          <b>You Got Served</b>
+          <span>Jhené Aiko feat. B2K — “Happy”</span>
+          <div class="credit-role">Producer • Composer</div>
+          <a class="film-source" href="https://music.apple.com/us/album/b2k-presents-you-got-served-soundtrack/1308962767" target="_blank" rel="noopener">View soundtrack ↗</a>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <a class="film-cover-link" href="https://music.apple.com/us/album/like-mike-music-from-the-motion-picture/192675915" target="_blank" rel="noopener">
+          <img class="film-cover" src="https://i.ebayimg.com/images/g/mQQAAOSwayll4mb~/s-l400.jpg" alt="Like Mike soundtrack cover" loading="lazy" decoding="async">
+        </a>
+        <div class="film-copy">
+          <b>Like Mike</b>
+          <span>Solange feat. B2K — “Dance With You”</span>
+          <div class="credit-role">Producer as Platinum Status • Songwriter as Tony Oliver</div>
+          <a class="film-source" href="https://music.apple.com/us/album/like-mike-music-from-the-motion-picture/192675915" target="_blank" rel="noopener">View soundtrack ↗</a>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <a class="film-cover-link" href="https://music.apple.com/us/album/freddy-vs-jason-soundtrack/753373667" target="_blank" rel="noopener">
+          <img class="film-cover" src="https://zh.followlyrics.com/storage/7/65010.jpg" alt="Freddy vs. Jason soundtrack cover" loading="lazy" decoding="async">
+        </a>
+        <div class="film-copy">
+          <b>Freddy vs. Jason</b>
+          <span>IMx — “First Time”</span>
+          <div class="credit-role">Film Placement</div>
+          <a class="film-source" href="https://music.apple.com/us/album/freddy-vs-jason-soundtrack/753373667" target="_blank" rel="noopener">View soundtrack ↗</a>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <a class="film-cover-link" href="https://open.spotify.com/album/4C78wAqe0xZKzfBWf2ycL4" target="_blank" rel="noopener">
+          <img class="film-cover" src="https://i.scdn.co/image/ab67616d0000b2732e6d0d8e2b966eeffd900963" alt="The 40-Year-Old Virgin soundtrack cover" loading="lazy" decoding="async">
+        </a>
+        <div class="film-copy">
+          <b>The 40-Year-Old Virgin</b>
+          <span>Young Rome — “After Party”</span>
+          <div class="credit-role">Film Placement</div>
+          <a class="film-source" href="https://open.spotify.com/album/4C78wAqe0xZKzfBWf2ycL4" target="_blank" rel="noopener">View soundtrack ↗</a>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <a class="film-cover-link" href="https://www.imdb.com/title/tt0180052/soundtrack/" target="_blank" rel="noopener">
+          <img class="film-cover" src="https://3ost.ru/uploads/posts/2010-05/1273411813_the-adventures-of-pluto-nash.jpg" alt="The Adventures of Pluto Nash soundtrack cover" loading="lazy" decoding="async">
+        </a>
+        <div class="film-copy">
+          <b>The Adventures of Pluto Nash</b>
+          <span>IMx — “Ain’t No Need for That”</span>
+          <div class="credit-role">Film Placement</div>
+          <a class="film-source" href="https://www.imdb.com/title/tt0180052/soundtrack/" target="_blank" rel="noopener">View soundtrack ↗</a>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <a class="film-cover-link" href="https://www.watertower-music.com/release/all-about-the-benjamins-original-motion-picture-soundtrack/" target="_blank" rel="noopener">
+          <img class="film-cover" src="https://i.ebayimg.com/images/g/jZMAAMXQEgpTGAZf/s-l640.jpg" alt="All About the Benjamins soundtrack cover" loading="lazy" decoding="async">
+        </a>
+        <div class="film-copy">
+          <b>All About the Benjamins</b>
+          <span>IMx — “Tears”</span>
+          <div class="credit-role">Film Placement</div>
+          <a class="film-source" href="https://www.watertower-music.com/release/all-about-the-benjamins-original-motion-picture-soundtrack/" target="_blank" rel="noopener">View soundtrack ↗</a>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <a class="film-cover-link" href="https://music.apple.com/us/album/the-master-of-disguise-music-from-the-motion-picture/193125080" target="_blank" rel="noopener">
+          <img class="film-cover" src="https://i.scdn.co/image/ab67616d0000b2730811860a0f38849fe4805986" alt="The Master of Disguise soundtrack cover" loading="lazy" decoding="async">
+        </a>
+        <div class="film-copy">
+          <b>The Master of Disguise</b>
+          <span>Film / soundtrack credit</span>
+          <div class="credit-role">Film Placement</div>
+          <a class="film-source" href="https://music.apple.com/us/album/the-master-of-disguise-music-from-the-motion-picture/193125080" target="_blank" rel="noopener">View soundtrack ↗</a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
