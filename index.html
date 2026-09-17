@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- TScott Productions 20-track upload-ready site package -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -6,15 +7,9 @@
   <title>TScott Productions | Producer, Songwriter & Executive Producer</title>
   <meta name="description" content="TScott Productions: production, songwriting, executive production, film and soundtrack placements, and music licensing." />
   <meta name="robots" content="index,follow" />
-  <meta property="og:title" content="TScott Productions" />
-  <meta property="og:description" content="Major records, film placements, executive production and music licensing." />
-  <meta property="og:type" content="website" />
   <meta name="theme-color" content="#090909" />
   <style>
-    :root{
-      --bg:#090909; --panel:#121212; --panel2:#181818; --text:#f6f6f6;
-      --muted:#b6b6b6; --accent:#d7b15a; --line:#2a2a2a;
-    }
+    :root{--bg:#090909;--panel:#121212;--panel2:#181818;--text:#f6f6f6;--muted:#b6b6b6;--accent:#d7b15a;--line:#2a2a2a;}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
@@ -45,11 +40,36 @@
     .feature span{color:var(--muted)}
     .price{font-size:36px;font-weight:900;margin:10px 0}
     .label{display:inline-block;margin-top:12px;padding:6px 9px;border-radius:999px;background:var(--panel2);font-size:12px;color:var(--accent)}
+    .store-intro{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+    .store-kicker{font-size:13px;letter-spacing:.16em;color:var(--accent);font-weight:900}
+    .store-count{font-size:13px;color:var(--muted);white-space:nowrap}
+    .track-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .track-card{background:linear-gradient(145deg,#151515,#101010);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+    .track-head{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+    .track-no{width:42px;height:42px;border:1px solid #4b4028;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:900;font-size:13px;flex:0 0 auto}
+    .track-card h3{margin:0;font-size:21px}
+    .preview-tag{font-size:10px;letter-spacing:.12em;color:var(--muted);font-weight:800}
+    audio{width:100%;height:40px;margin:5px 0 15px}
+    .license-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+    .license-row div{padding:10px 9px;border-right:1px solid var(--line);background:#0d0d0d}
+    .license-row div:last-child{border-right:0}
+    .license-row span{display:block;color:var(--muted);font-size:9px;line-height:1.2;font-weight:800;letter-spacing:.03em}
+    .license-row strong{display:block;color:var(--accent);font-size:15px;margin-top:3px}
+    .shop-btn{width:100%;margin-top:12px;padding:11px 12px;background:transparent;color:var(--text);border:1px solid #4a4a4a;border-radius:11px;font-weight:900;cursor:pointer}
+    .shop-btn:hover{border-color:var(--accent);color:var(--accent)}
+    .review-note{border:1px solid #4b4028;background:#17140e;color:#d9caa6;border-radius:14px;padding:14px 16px;margin-bottom:26px;font-size:13px}
     footer{padding:40px 0;color:var(--muted);border-top:1px solid var(--line)}
     @media(max-width:820px){
-      .grid,.featured{grid-template-columns:1fr}
+      .grid,.featured,.track-grid{grid-template-columns:1fr}
       .navlinks{display:none}
       .hero{padding-top:62px}
+      .store-intro{display:block}
+      .store-count{margin-top:10px}
+    }
+    @media(max-width:520px){
+      .license-row{grid-template-columns:1fr}
+      .license-row div{border-right:0;border-bottom:1px solid var(--line)}
+      .license-row div:last-child{border-bottom:0}
     }
   </style>
 </head>
@@ -59,11 +79,13 @@
   <div class="wrap">
     <div class="brand">TSCOTT PRODUCTIONS</div>
     <div class="navlinks">
+      <a href="#store">Music Store</a>
       <a href="#featured">Featured</a>
       <a href="#executive">Executive Production</a>
       <a href="#studio">Studio Leadership</a>
       <a href="#film">Film</a>
       <a href="#licensing">Licensing</a>
+      <a href="#services">Additional Services</a>
     </div>
   </div>
 </nav>
@@ -74,58 +96,401 @@
     <h1>Major records. Film placements. Music built to move.</h1>
     <p class="sub">TScott Productions represents decades of work across R&amp;B, pop, film soundtracks, executive production, studio leadership and new music available for licensing.</p>
     <div class="buttons">
-      <a class="btn primary" href="#featured">View Featured Credits</a>
+      <a class="btn primary" href="#store">Shop Music</a>
+      <a class="btn" href="#featured">View Featured Credits</a>
       <a class="btn" href="#licensing">License Music</a>
-      <a class="btn" href="#executive">Executive Production</a>
     </div>
   </div>
 </header>
+
+<section id="store">
+  <div class="wrap">
+    <div class="store-intro">
+      <div>
+        <div class="store-kicker">20 TRACKS. READY TO SHOP.</div>
+        <h2>Find Your Next Record</h2>
+        <p class="section-copy" style="margin-bottom:0">Preview the catalog. Every public player is limited to a 30-second web preview.</p>
+      </div>
+      <div class="store-count">20 TRACKS • 3 LICENSE OPTIONS</div>
+    </div>
+    <div class="track-grid">
+      
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">01</span>
+          <div>
+            <h3>Sex on the Beach #1</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/01-sex-on-the-beach-1.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">02</span>
+          <div>
+            <h3>Hear You</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/02-hear-you.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">03</span>
+          <div>
+            <h3>After Hours</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/03-after-hours.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">04</span>
+          <div>
+            <h3>Top Floor</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/04-top-floor.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">05</span>
+          <div>
+            <h3>No Ceiling</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/05-no-ceiling.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">06</span>
+          <div>
+            <h3>Velvet Motion</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/06-velvet-motion.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">07</span>
+          <div>
+            <h3>Midnight Text</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/07-midnight-text.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">08</span>
+          <div>
+            <h3>On the Run</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/08-on-the-run.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">09</span>
+          <div>
+            <h3>Clean Getaway</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/09-clean-getaway.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">10</span>
+          <div>
+            <h3>Love District</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/10-love-district.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">11</span>
+          <div>
+            <h3>Stargate</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/11-stargate.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">12</span>
+          <div>
+            <h3>Neon Love</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/12-neon-love.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">13</span>
+          <div>
+            <h3>Love Still Matters</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/13-love-still-matters.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">14</span>
+          <div>
+            <h3>Last Call</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/14-last-call.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">15</span>
+          <div>
+            <h3>Crown Talk</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/15-crown-talk.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">16</span>
+          <div>
+            <h3>High Stakes</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/16-high-stakes.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">17</span>
+          <div>
+            <h3>Body Language</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/17-body-language.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">18</span>
+          <div>
+            <h3>Diamond District</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/18-diamond-district.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">19</span>
+          <div>
+            <h3>Street Chemistry</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/19-street-chemistry.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+
+      <article class="track-card">
+        <div class="track-head">
+          <span class="track-no">20</span>
+          <div>
+            <h3>Six Figures</h3>
+            <span class="preview-tag">30-SECOND PREVIEW</span>
+          </div>
+        </div>
+        <audio controls preload="none" controlsList="nodownload" src="assets/audio/20-six-figures.mp3"></audio>
+        <div class="license-row">
+          <div><span>MP3 LEASE</span><strong>$99.99</strong></div>
+          <div><span>WAV LICENSE</span><strong>$300</strong></div>
+          <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
+        </div>
+        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+      </article>
+    
+    </div>
+  </div>
+</section>
 
 <section id="featured">
   <div class="wrap">
     <h2>Featured Credits</h2>
     <p class="section-copy">Selected production and songwriting credits spanning major artists, soundtrack releases and newer catalog activity.</p>
     <div class="featured">
-      <div class="feature">
-        <b>B2K feat. Fabolous — “Bada Boom”</b>
-        <span>Produced by Tony Scott.</span>
-        <div class="credit-role">Producer • Songwriter</div>
-      </div>
-      <div class="feature">
-        <b>Destiny’s Child — “Where’d You Go”</b>
-        <span>From <i>The Writing’s on the Wall</i>.</span>
-        <div class="credit-role">Producer as Platinum Status • Songwriter as Tony Oliver</div>
-      </div>
-      <div class="feature">
-        <b>Jhené Aiko feat. B2K — “Happy”</b>
-        <span>From the <i>You Got Served</i> soundtrack.</span>
-        <div class="credit-role">Producer • Composer</div>
-      </div>
-      <div class="feature">
-        <b>Solange feat. B2K — “Dance With You”</b>
-        <span>Featured on <i>Solo Star</i> and associated with <i>Like Mike</i>.</span>
-        <div class="credit-role">Producer as Platinum Status • Songwriter as Tony Oliver</div>
-      </div>
-      <div class="feature">
-        <b>Jacquees — “I Remember”</b>
-        <span>From <i>Sincerely For You</i>.</span>
-        <div class="credit-role">Composer / Lyricist credit as Tony Oliver</div>
-      </div>
-      <div class="feature">
-        <b>Marques Houston — “DM Her”</b>
-        <span>Released in 2024.</span>
-        <div class="credit-role">Producer • Songwriter</div>
-      </div>
-      <div class="feature">
-        <b>Marques Houston feat. Jermaine Dupri — “Pop That Booty”</b>
-        <span>From <i>MH</i>.</span>
-        <div class="credit-role">Producer • Executive Producer • Composer</div>
-      </div>
-      <div class="feature">
-        <b>B2K — “Why’d You Leave Me on Christmas”</b>
-        <span>From <i>Santa Hooked Me Up</i>.</span>
-        <div class="credit-role">Producer as Platinum Status • Songwriter as Tony Oliver</div>
-      </div>
+      <div class="feature"><b>B2K feat. Fabolous — “Bada Boom”</b><span>Produced by Tony Scott.</span><div class="credit-role">Producer • Songwriter</div></div>
+      <div class="feature"><b>Destiny’s Child — “Where’d You Go”</b><span>From <i>The Writing’s on the Wall</i>.</span><div class="credit-role">Producer as Platinum Status • Songwriter as Tony Oliver</div></div>
+      <div class="feature"><b>Jhené Aiko feat. B2K — “Happy”</b><span>From the <i>You Got Served</i> soundtrack.</span><div class="credit-role">Producer • Composer</div></div>
+      <div class="feature"><b>Solange feat. B2K — “Dance With You”</b><span>Featured on <i>Solo Star</i> and associated with <i>Like Mike</i>.</span><div class="credit-role">Producer as Platinum Status • Songwriter as Tony Oliver</div></div>
+      <div class="feature"><b>Jacquees — “I Remember”</b><span>From <i>Sincerely For You</i>.</span><div class="credit-role">Composer / Lyricist credit as Tony Oliver</div></div>
+      <div class="feature"><b>Marques Houston — “DM Her”</b><span>Released in 2024.</span><div class="credit-role">Producer • Songwriter</div></div>
+      <div class="feature"><b>Marques Houston feat. Jermaine Dupri — “Pop That Booty”</b><span>From <i>MH</i>.</span><div class="credit-role">Producer • Executive Producer • Composer</div></div>
+      <div class="feature"><b>B2K — “Why’d You Leave Me on Christmas”</b><span>From <i>Santa Hooked Me Up</i>.</span><div class="credit-role">Producer as Platinum Status • Songwriter as Tony Oliver</div></div>
     </div>
   </div>
 </section>
@@ -135,21 +500,9 @@
     <h2>Executive Production</h2>
     <p class="section-copy">Album-level and project-level leadership credits that show the broader scope of TScott Productions beyond individual tracks.</p>
     <div class="grid">
-      <div class="card">
-        <h3>Marques Houston — <i>MH</i></h3>
-        <p>Debut solo album by Marques Houston.</p>
-        <div class="credit-role">Executive Producer — Tony Scott</div>
-      </div>
-      <div class="card">
-        <h3>B2K — <i>Pandemonium!</i></h3>
-        <p>Major B2K studio album.</p>
-        <div class="credit-role">Executive Producer / Producer — Platinum Status</div>
-      </div>
-      <div class="card">
-        <h3>IMx — <i>IMx</i></h3>
-        <p>IMx studio album released through New Line Records.</p>
-        <div class="credit-role">Executive Producer / Producer — Platinum Status</div>
-      </div>
+      <div class="card"><h3>Marques Houston — <i>MH</i></h3><p>Debut solo album by Marques Houston.</p><div class="credit-role">Executive Producer — Tony Scott</div></div>
+      <div class="card"><h3>B2K — <i>Pandemonium!</i></h3><p>Major B2K studio album.</p><div class="credit-role">Executive Producer / Producer — Platinum Status</div></div>
+      <div class="card"><h3>IMx — <i>IMx</i></h3><p>IMx studio album released through New Line Records.</p><div class="credit-role">Executive Producer / Producer — Platinum Status</div></div>
     </div>
   </div>
 </section>
@@ -159,21 +512,9 @@
     <h2>Studio Leadership</h2>
     <p class="section-copy">Experience extends beyond records into leading production environments, developing projects and running studio workflow.</p>
     <div class="grid">
-      <div class="card">
-        <h3>Madhouse Studios</h3>
-        <p>Head Producer, overseeing record production and studio workflow across projects created at the facility.</p>
-        <div class="credit-role">Head Producer • Studio Leadership</div>
-      </div>
-      <div class="card">
-        <h3>Creative Direction</h3>
-        <p>Session leadership, record development, artist coordination and production from concept through completion.</p>
-        <div class="credit-role">Production Leadership</div>
-      </div>
-      <div class="card">
-        <h3>Studio Operations</h3>
-        <p>Hands-on experience helping run studio environments while keeping sessions focused on the record.</p>
-        <div class="credit-role">Studio Management Experience</div>
-      </div>
+      <div class="card"><h3>Madhouse Studios</h3><p>Head Producer, overseeing record production and studio workflow across projects created at the facility.</p><div class="credit-role">Head Producer • Studio Leadership</div></div>
+      <div class="card"><h3>Creative Direction</h3><p>Session leadership, record development, artist coordination and production from concept through completion.</p><div class="credit-role">Production Leadership</div></div>
+      <div class="card"><h3>Studio Operations</h3><p>Hands-on experience helping run studio environments while keeping sessions focused on the record.</p><div class="credit-role">Studio Management Experience</div></div>
     </div>
   </div>
 </section>
@@ -194,35 +535,44 @@
 <section id="licensing">
   <div class="wrap">
     <h2>Music Licensing</h2>
-    <p class="section-copy">License original music for independent releases, artist projects, content and custom production. Short track previews can be added directly above these options.</p>
+    <p class="section-copy">Choose the format that fits the project. Pricing below is per track.</p>
+    <div class="grid">
+      <div class="card"><h3>MP3 Lease</h3><div class="price">$99.99</div><p>Entry-level license for a selected track delivered as an MP3.</p><span class="label">Per track</span></div>
+      <div class="card"><h3>WAV License</h3><div class="price">$300</div><p>Higher-quality WAV delivery for a selected track.</p><span class="label">Per track</span></div>
+      <div class="card"><h3>Trackouts / Exclusive</h3><div class="price">$1,000</div><p>Trackouts / exclusive option for a selected track. Final rights language will be added before checkout goes live.</p><span class="label">Per track</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="services">
+  <div class="wrap">
+    <h2>Additional Services</h2>
+    <p class="section-copy">Creative support available alongside music production and licensing.</p>
     <div class="grid">
       <div class="card">
-        <h3>MP3 Lease</h3>
-        <div class="price">$99.99</div>
-        <p>Entry-level license for selected tracks.</p>
-        <span class="label">Current price</span>
+        <h3>Photography</h3>
+        <p>Photography services for artists, brands, promotional content and creative projects.</p>
+        <div class="credit-role">Creative Services</div>
       </div>
       <div class="card">
-        <h3>WAV License</h3>
-        <div class="price">Available</div>
-        <p>Higher-quality delivery with expanded licensing options.</p>
-        <span class="label">Contact / checkout link can be connected</span>
-      </div>
-      <div class="card">
-        <h3>Trackouts / Exclusive</h3>
-        <div class="price">Custom</div>
-        <p>Stems, exclusive rights, hooks, full songs and custom production.</p>
-        <span class="label">Custom quote</span>
+        <h3>Graphic Design</h3>
+        <p>Graphic design for music releases, promotional materials, branding and digital content.</p>
+        <div class="credit-role">Visual Branding</div>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    © TScott Productions. Producer • Songwriter • Executive Producer.
-  </div>
+  <div class="wrap">© TScott Productions. Producer • Songwriter • Executive Producer.</div>
 </footer>
 
+<script>
+  const players = [...document.querySelectorAll('audio')];
+  players.forEach(player => player.addEventListener('play', () => {
+    players.forEach(other => { if (other !== player) other.pause(); });
+  }));
+</script>
 </body>
 </html>
