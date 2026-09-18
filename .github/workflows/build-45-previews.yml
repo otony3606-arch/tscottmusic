@@ -1,0 +1,74 @@
+name: Build 45-second previews
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.event.head_commit.message == 'Build 45-second previews'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build previews
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .preview45-out
+
+          two_mp3 () {
+            local base="$1" tail="$2" out="$3"
+            ffmpeg -y -v error -i "$base" -i "$tail" -filter_complex \
+              "[0:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[a0];[1:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[a1];[a0][a1]concat=n=2:v=0:a=1[a]" \
+              -map "[a]" -t 45 -c:a libmp3lame -b:a 128k "$out"
+          }
+
+          three_mp3 () {
+            local pre="$1" base="$2" suf="$3" out="$4"
+            ffmpeg -y -v error -i "$pre" -i "$base" -i "$suf" -filter_complex \
+              "[0:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[a0];[1:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[a1];[2:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[a2];[a0][a1][a2]concat=n=3:v=0:a=1[a]" \
+              -map "[a]" -t 45 -c:a libmp3lame -b:a 128k "$out"
+          }
+
+          two_m4a () {
+            local base="$1" tail="$2" out="$3"
+            ffmpeg -y -v error -i "$base" -i "$tail" -filter_complex \
+              "[0:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[a0];[1:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[a1];[a0][a1]concat=n=2:v=0:a=1[a]" \
+              -map "[a]" -t 45 -c:a aac -b:a 128k -movflags +faststart "$out"
+          }
+
+          three_mp3 ".preview45-segments/01-prefix.m4a" "assets/audio/01-sex-on-the-beach-1.mp3" ".preview45-segments/01-suffix.m4a" ".preview45-out/01-sex-on-the-beach-1.mp3"
+          two_mp3 "assets/audio/02-hear-you.mp3" ".preview45-segments/02-tail.m4a" ".preview45-out/02-hear-you.mp3"
+          two_mp3 "assets/audio/03-after-hours.mp3" ".preview45-segments/03-tail.m4a" ".preview45-out/03-after-hours.mp3"
+          two_mp3 "assets/audio/04-top-floor.mp3" ".preview45-segments/04-tail.m4a" ".preview45-out/04-top-floor.mp3"
+          two_mp3 "assets/audio/05-no-ceiling.mp3" ".preview45-segments/05-tail.m4a" ".preview45-out/05-no-ceiling.mp3"
+          two_mp3 "assets/audio/06-velvet-motion.mp3" ".preview45-segments/06-tail.m4a" ".preview45-out/06-velvet-motion.mp3"
+          two_mp3 "assets/audio/07-midnight-text.mp3" ".preview45-segments/07-tail.m4a" ".preview45-out/07-midnight-text.mp3"
+          two_mp3 "assets/audio/08-on-the-run.mp3" ".preview45-segments/08-tail.m4a" ".preview45-out/08-on-the-run.mp3"
+          two_mp3 "assets/audio/09-clean-getaway.mp3" ".preview45-segments/09-tail.m4a" ".preview45-out/09-clean-getaway.mp3"
+          two_mp3 "assets/audio/10-love-district.mp3" ".preview45-segments/10-tail.m4a" ".preview45-out/10-love-district.mp3"
+          three_mp3 ".preview45-segments/11-prefix.m4a" "assets/audio/11-stargate.mp3" ".preview45-segments/11-suffix.m4a" ".preview45-out/11-stargate.mp3"
+          two_m4a "assets/audio/12-honey-pack.m4a" ".preview45-segments/12-tail.m4a" ".preview45-out/12-honey-pack.m4a"
+          two_mp3 "assets/audio/13-love-still-matters.mp3" ".preview45-segments/13-tail.m4a" ".preview45-out/13-love-still-matters.mp3"
+          two_mp3 "assets/audio/14-last-call.mp3" ".preview45-segments/14-tail.m4a" ".preview45-out/14-last-call.mp3"
+          two_mp3 "assets/audio/15-crown-talk.mp3" ".preview45-segments/15-tail.m4a" ".preview45-out/15-crown-talk.mp3"
+          two_mp3 "assets/audio/16-high-stakes.mp3" ".preview45-segments/16-tail.m4a" ".preview45-out/16-high-stakes.mp3"
+          two_mp3 "assets/audio/17-body-language.mp3" ".preview45-segments/17-tail.m4a" ".preview45-out/17-body-language.mp3"
+          two_mp3 "assets/audio/18-diamond-district.mp3" ".preview45-segments/18-tail.m4a" ".preview45-out/18-diamond-district.mp3"
+          two_mp3 "assets/audio/19-street-chemistry.mp3" ".preview45-segments/19-tail.m4a" ".preview45-out/19-street-chemistry.mp3"
+          two_mp3 "assets/audio/20-six-figures.mp3" ".preview45-segments/20-tail.m4a" ".preview45-out/20-six-figures.mp3"
+
+          cp .preview45-out/* assets/audio/
+      - name: Commit rebuilt previews
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/audio index.html
+          git commit -m "Publish 45-second previews" || exit 0
+          git push
