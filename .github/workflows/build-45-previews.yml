@@ -47,7 +47,7 @@ jobs:
               -map "[a]" -t 45 -c:a aac -b:a 128k -movflags +faststart "$out"
           }
 
-          three_mp3 ".preview45-segments/01-prefix.m4a" "assets/audio/01-sex-on-the-beach-1.mp3" ".preview45-segments/01-suffix.m4a" ".preview45-out/01-sex-on-the-beach-1.mp3"
+          cp "assets/audio/01-sex-on-the-beach-1.mp3" ".preview45-out/01-sex-on-the-beach-1.mp3"
           two_mp3 "assets/audio/02-hear-you.mp3" ".preview45-segments/02-tail.m4a" ".preview45-out/02-hear-you.mp3"
           two_mp3 "assets/audio/03-after-hours.mp3" ".preview45-segments/03-tail.m4a" ".preview45-out/03-after-hours.mp3"
           two_mp3 "assets/audio/04-top-floor.mp3" ".preview45-segments/04-tail.m4a" ".preview45-out/04-top-floor.mp3"
