@@ -15,11 +15,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+
       - name: Install FFmpeg
         shell: bash
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg
+
       - name: Replace Honey Pack audio
         shell: bash
         env:
@@ -29,13 +31,9 @@ jobs:
           curl -L --fail --retry 3 "$HONEY_PACK_URL" -o /tmp/honey-pack-transfer.mp4
           ffmpeg -y -v error -i /tmp/honey-pack-transfer.mp4 -map 0:a:0 -c:a copy -movflags +faststart assets/audio/12-honey-pack.m4a
           duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 assets/audio/12-honey-pack.m4a)
-          python3 - "$duration" <<'PY'
-import sys
-value = float(sys.argv[1])
-if not 44.9 <= value <= 45.1:
-    raise SystemExit(f"Unexpected Honey Pack duration: {value}")
-PY
+          awk -v d="$duration" 'BEGIN { if (d < 44.9 || d > 45.1) exit 1 }'
           rm .github/workflows/replace-honey-pack.yml
+
       - name: Commit replacement
         shell: bash
         run: |
