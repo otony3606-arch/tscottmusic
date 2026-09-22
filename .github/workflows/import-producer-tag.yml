@@ -23,6 +23,11 @@ jobs:
         run: |
           test -s assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3
 
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
       - name: Build tagged 45-second previews with fade-outs
         run: |
           mkdir -p assets/audio/tagged
