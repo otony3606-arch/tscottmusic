@@ -58,9 +58,15 @@ jobs:
                   return 'Late Night'
               return 'Confident'
 
-          files=sorted(glob.glob('assets/audio/*.mp3')+glob.glob('assets/audio/*.m4a'))
+          with open('index.html',encoding='utf-8') as h:
+              markup=h.read()
+          rows=re.findall(r'<article class="track-card">.*?<span class="track-no">(\d+)</span>.*?<h3>(.*?)</h3>.*?<audio[^>]+src="assets/audio/tagged/([^"]+)"',markup,re.S)
           out=[]
-          for i,path in enumerate(files,1):
+          for number,title_html,basename in rows:
+              path=os.path.join('assets/audio',basename)
+              if not os.path.exists(path):
+                  continue
+              title=re.sub(r'<[^>]+>','',title_html).strip()
               y,sr=librosa.load(path,sr=22050,mono=True,duration=45)
               if len(y)==0:
                   bpm=0; energy=0; centroid=0
@@ -69,12 +75,11 @@ jobs:
                   bpm=float(np.atleast_1d(tempo)[0]) if np.size(tempo) else 0
                   energy=float(np.mean(librosa.feature.rms(y=y)))
                   centroid=float(np.mean(librosa.feature.spectral_centroid(y=y,sr=sr)))
-              title=clean_title(path)
               low=title.lower()
               track_type='Freestyle' if 'freestyle' in low else ('Intro' if 'intro' in low or 'ntro' in low else 'Beat')
               out.append({
                   'file':os.path.basename(path),
-                  'number':f'{i:02d}',
+                  'number':number,
                   'title':title,
                   'bpm':int(round(bpm)) if bpm else None,
                   'genre':genre_for(title,bpm),
