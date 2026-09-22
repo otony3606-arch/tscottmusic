@@ -110,7 +110,7 @@
       .license-row div:last-child{border-bottom:0}
     }
 
-    /* 35 unique TSP track artworks with lightweight 3D motion */
+    /* High-resolution individual TSP track artwork with lightweight 3D motion */
     .tsp-art{
       position:relative;
       width:100%;
@@ -118,23 +118,30 @@
       margin:-2px -2px 18px;
       border-radius:17px;
       overflow:hidden;
-      background-color:#080808;
-      background-image:url('assets/images/tsp-track-art.webp');
-      background-repeat:no-repeat;
-      background-size:500% 700%;
-      background-position:var(--art-x) var(--art-y);
+      background:#080808;
       border:1px solid #4b4028;
-      box-shadow:inset 0 0 34px rgba(0,0,0,.18),0 14px 32px rgba(0,0,0,.34);
+      box-shadow:inset 0 0 22px rgba(0,0,0,.16),0 14px 32px rgba(0,0,0,.34);
       transform-style:preserve-3d;
       animation:tspArtFloat 7.2s ease-in-out infinite;
       transition:filter .28s ease,box-shadow .28s ease,transform .28s ease;
       will-change:transform;
     }
+    .tsp-art img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      image-rendering:auto;
+      transform:translateZ(0);
+      backface-visibility:hidden;
+    }
     .tsp-art:before{
       content:"";
       position:absolute;
+      z-index:2;
       inset:-35%;
-      background:linear-gradient(110deg,transparent 38%,rgba(255,224,150,.18) 48%,rgba(255,255,255,.24) 50%,rgba(255,224,150,.12) 53%,transparent 63%);
+      background:linear-gradient(110deg,transparent 38%,rgba(255,224,150,.12) 48%,rgba(255,255,255,.19) 50%,rgba(255,224,150,.09) 53%,transparent 63%);
       transform:translateX(-70%) rotate(6deg);
       animation:tspArtSheen 6.6s ease-in-out infinite;
       pointer-events:none;
@@ -143,24 +150,25 @@
     .tsp-art:after{
       content:"";
       position:absolute;
+      z-index:3;
       inset:0;
       border-radius:inherit;
-      box-shadow:inset 0 0 38px rgba(0,0,0,.30),inset 0 0 0 1px rgba(255,215,120,.08);
+      box-shadow:inset 0 0 24px rgba(0,0,0,.18),inset 0 0 0 1px rgba(255,215,120,.08);
       pointer-events:none;
     }
     .track-card:nth-child(3n+2) .tsp-art{animation-delay:-1.8s}
     .track-card:nth-child(3n) .tsp-art{animation-delay:-3.6s}
     .track-card:hover .tsp-art{
-      filter:brightness(1.08) saturate(1.08);
-      box-shadow:inset 0 0 28px rgba(0,0,0,.14),0 20px 46px rgba(0,0,0,.48),0 0 0 1px rgba(215,177,90,.28);
+      filter:brightness(1.06) saturate(1.05);
+      box-shadow:inset 0 0 18px rgba(0,0,0,.12),0 20px 46px rgba(0,0,0,.48),0 0 0 1px rgba(215,177,90,.28);
     }
     @keyframes tspArtFloat{
-      0%,100%{transform:perspective(1000px) rotateX(1deg) rotateY(-1.4deg) translateY(0) scale(1.002)}
-      50%{transform:perspective(1000px) rotateX(-1deg) rotateY(1.4deg) translateY(-5px) scale(1.014)}
+      0%,100%{transform:perspective(1000px) rotateX(.7deg) rotateY(-1deg) translateY(0) scale(1.001)}
+      50%{transform:perspective(1000px) rotateX(-.7deg) rotateY(1deg) translateY(-4px) scale(1.008)}
     }
     @keyframes tspArtSheen{
       0%,28%{transform:translateX(-75%) rotate(6deg);opacity:0}
-      42%{opacity:.8}
+      42%{opacity:.7}
       62%{transform:translateX(75%) rotate(6deg);opacity:0}
       100%{transform:translateX(75%) rotate(6deg);opacity:0}
     }
@@ -199,7 +207,7 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="assets/images/tony-hero.jpg?v=20260917c" alt="TScott Productions portrait" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="assets/images/tony-hero-hq.webp" width="1000" height="1250" alt="TScott Productions portrait" loading="eager" decoding="async" fetchpriority="high" />
     </div>
   </div>
 </header>
@@ -853,7 +861,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/you-got-served-music-from-the-motion-picture/198106586" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0d/d2/f4/0dd2f44f-7593-015d-f79f-47bd156d8975/mzi.rnqqrtoe.jpg/600x600bb.jpg" alt="You Got Served soundtrack cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0d/d2/f4/0dd2f44f-7593-015d-f79f-47bd156d8975/mzi.rnqqrtoe.jpg/1200x1200bb.jpg" alt="You Got Served soundtrack cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>B2K feat. Fabolous — “Bada Boom”</b>
@@ -865,7 +873,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/christmas-day/192967268?i=192967355" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/de/e5/b4/mzi.vvrxedkf.jpg/600x600bb.jpg" alt="Epic Records A Season Of Soul And Sounds cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/de/e5/b4/mzi.vvrxedkf.jpg/1200x1200bb.jpg" alt="Epic Records A Season Of Soul And Sounds cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>Ginuwine — “Christmas Day”</b>
@@ -877,7 +885,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/the-writings-on-the-wall/266809606" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c9/29/74/c92974ce-2bdd-4b86-a261-01adc901bb65/mzi.cmambura.jpg/600x600bb.jpg" alt="The Writing's On the Wall album cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c9/29/74/c92974ce-2bdd-4b86-a261-01adc901bb65/mzi.cmambura.jpg/1200x1200bb.jpg" alt="The Writing's On the Wall album cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>Destiny’s Child — “Where’d You Go”</b>
@@ -889,7 +897,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/imx/209684529" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/6c/3b/c9/6c3bc926-c6d9-d1e7-d5d1-7a8c99074407/794043900662.jpg/600x600bb.jpg" alt="IMx album cover for Stay the Night" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/6c/3b/c9/6c3bc926-c6d9-d1e7-d5d1-7a8c99074407/794043900662.jpg/1200x1200bb.jpg" alt="IMx album cover for Stay the Night" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>IMx — “Stay the Night”</b>
@@ -901,7 +909,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/you-got-served-music-from-the-motion-picture/198106586" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0d/d2/f4/0dd2f44f-7593-015d-f79f-47bd156d8975/mzi.rnqqrtoe.jpg/600x600bb.jpg" alt="You Got Served soundtrack cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0d/d2/f4/0dd2f44f-7593-015d-f79f-47bd156d8975/mzi.rnqqrtoe.jpg/1200x1200bb.jpg" alt="You Got Served soundtrack cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>Jhené Aiko feat. B2K — “Happy”</b>
@@ -913,7 +921,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/solo-star/1562908061" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/81/4e/b0/814eb042-f104-b1df-22fc-4fb5e38e6ef4/192650650138_cover.jpg/600x600bb.jpg" alt="Solo Star album cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/81/4e/b0/814eb042-f104-b1df-22fc-4fb5e38e6ef4/192650650138_cover.jpg/1200x1200bb.jpg" alt="Solo Star album cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>Solange feat. B2K — “Dance With You”</b>
@@ -925,7 +933,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/sincerely-for-you/1655004070" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/60/f5/da/60f5da90-a282-91ae-1bc0-28d3a986235d/22UM1IM33094.rgb.jpg/600x600bb.jpg" alt="Sincerely For You album cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/60/f5/da/60f5da90-a282-91ae-1bc0-28d3a986235d/22UM1IM33094.rgb.jpg/1200x1200bb.jpg" alt="Sincerely For You album cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>Jacquees — “I Remember”</b>
@@ -937,7 +945,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/dm-her-single/1782118747" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8d/4a/63/8d4a6370-0cdd-9325-a2b5-941b6e024e42/859797857669_cover.jpg/600x600bb.jpg" alt="Dm Her single cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8d/4a/63/8d4a6370-0cdd-9325-a2b5-941b6e024e42/859797857669_cover.jpg/1200x1200bb.jpg" alt="Dm Her single cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>Marques Houston — “DM Her”</b>
@@ -949,7 +957,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/mh/1550261185" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/75/d8/28/75d828a3-9744-cc15-9093-5a6503629e76/842474129296.jpg/600x600bb.jpg" alt="MH album cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/75/d8/28/75d828a3-9744-cc15-9093-5a6503629e76/842474129296.jpg/1200x1200bb.jpg" alt="MH album cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>Marques Houston feat. Jermaine Dupri — “Pop That Booty”</b>
@@ -961,7 +969,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/song/337148221" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/56/20/3a/56203a26-1386-7b47-fa65-0b8f6f122308/mzi.yaycrsie.jpg/600x600bb.jpg" alt="Santa Hooked Me Up album cover for Santa Baby" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/56/20/3a/56203a26-1386-7b47-fa65-0b8f6f122308/mzi.yaycrsie.jpg/1200x1200bb.jpg" alt="Santa Hooked Me Up album cover for Santa Baby" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>Jhené Aiko &amp; B2K — “Santa Baby”</b>
@@ -973,7 +981,7 @@
 
       <article class="credit-card">
         <a class="credit-cover-link" href="https://music.apple.com/us/album/santa-hooked-me-up/337147907" target="_blank" rel="noopener">
-          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/56/20/3a/56203a26-1386-7b47-fa65-0b8f6f122308/mzi.yaycrsie.jpg/600x600bb.jpg" alt="Santa Hooked Me Up album cover" loading="lazy" decoding="async">
+          <img class="credit-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/56/20/3a/56203a26-1386-7b47-fa65-0b8f6f122308/mzi.yaycrsie.jpg/1200x1200bb.jpg" alt="Santa Hooked Me Up album cover" loading="lazy" decoding="async">
         </a>
         <div class="credit-copy">
           <b>B2K — “Why’d You Leave Me on Christmas”</b>
@@ -995,7 +1003,7 @@
 
       <article class="exec-card">
         <a class="exec-cover-link" href="https://music.apple.com/us/album/mh/1550261185" target="_blank" rel="noopener">
-          <img class="exec-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/75/d8/28/75d828a3-9744-cc15-9093-5a6503629e76/842474129296.jpg/600x600bb.jpg" alt="MH album cover" loading="lazy" decoding="async">
+          <img class="exec-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/75/d8/28/75d828a3-9744-cc15-9093-5a6503629e76/842474129296.jpg/1200x1200bb.jpg" alt="MH album cover" loading="lazy" decoding="async">
         </a>
         <div class="exec-copy">
           <h3>Marques Houston — <i>MH</i></h3>
@@ -1007,7 +1015,7 @@
 
       <article class="exec-card">
         <a class="exec-cover-link" href="https://music.apple.com/us/album/pandemonium/171222930" target="_blank" rel="noopener">
-          <img class="exec-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7e/c1/4a/7ec14a1b-2123-510c-56d8-9a5363eff9cc/mzi.kidewxvy.jpg/600x600bb.jpg" alt="Pandemonium album cover" loading="lazy" decoding="async">
+          <img class="exec-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7e/c1/4a/7ec14a1b-2123-510c-56d8-9a5363eff9cc/mzi.kidewxvy.jpg/1200x1200bb.jpg" alt="Pandemonium album cover" loading="lazy" decoding="async">
         </a>
         <div class="exec-copy">
           <h3>B2K — <i>Pandemonium!</i></h3>
@@ -1019,7 +1027,7 @@
 
       <article class="exec-card">
         <a class="exec-cover-link" href="https://music.apple.com/us/album/imx/209684529" target="_blank" rel="noopener">
-          <img class="exec-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/6c/3b/c9/6c3bc926-c6d9-d1e7-d5d1-7a8c99074407/794043900662.jpg/600x600bb.jpg" alt="IMx album cover" loading="lazy" decoding="async">
+          <img class="exec-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/6c/3b/c9/6c3bc926-c6d9-d1e7-d5d1-7a8c99074407/794043900662.jpg/1200x1200bb.jpg" alt="IMx album cover" loading="lazy" decoding="async">
         </a>
         <div class="exec-copy">
           <h3>IMx — <i>IMx</i></h3>
@@ -1054,7 +1062,7 @@
 
       <article class="film-card">
         <a class="film-cover-link" href="https://music.apple.com/us/album/b2k-presents-you-got-served-soundtrack/1308962767" target="_blank" rel="noopener">
-          <img class="film-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/17/ec/e2/17ece29a-c80e-6536-f685-39e4e6ac3d45/888880792532.jpg/600x600bf-60.jpg" alt="You Got Served soundtrack cover" loading="lazy" decoding="async">
+          <img class="film-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/17/ec/e2/17ece29a-c80e-6536-f685-39e4e6ac3d45/888880792532.jpg/1200x1200bf-60.jpg" alt="You Got Served soundtrack cover" loading="lazy" decoding="async">
         </a>
         <div class="film-copy">
           <b>You Got Served</b>
@@ -1066,7 +1074,7 @@
 
       <article class="film-card">
         <a class="film-cover-link" href="https://music.apple.com/us/album/like-mike-music-from-the-motion-picture/192675915" target="_blank" rel="noopener">
-          <img class="film-cover" src="https://i.ebayimg.com/images/g/mQQAAOSwayll4mb~/s-l400.jpg" alt="Like Mike soundtrack cover" loading="lazy" decoding="async">
+          <img class="film-cover" src="https://i.ebayimg.com/images/g/mQQAAOSwayll4mb~/s-l1600.jpg" alt="Like Mike soundtrack cover" loading="lazy" decoding="async">
         </a>
         <div class="film-copy">
           <b>Like Mike</b>
@@ -1114,7 +1122,7 @@
 
       <article class="film-card">
         <a class="film-cover-link" href="https://www.watertower-music.com/release/all-about-the-benjamins-original-motion-picture-soundtrack/" target="_blank" rel="noopener">
-          <img class="film-cover" src="https://i.ebayimg.com/images/g/jZMAAMXQEgpTGAZf/s-l640.jpg" alt="All About the Benjamins soundtrack cover" loading="lazy" decoding="async">
+          <img class="film-cover" src="https://i.ebayimg.com/images/g/jZMAAMXQEgpTGAZf/s-l1600.jpg" alt="All About the Benjamins soundtrack cover" loading="lazy" decoding="async">
         </a>
         <div class="film-copy">
           <b>All About the Benjamins</b>
@@ -1189,17 +1197,25 @@
 <script defer src="/_vercel/insights/script.js"></script>
 
 <script>
-  // Map each of the 35 track cards to its own generated TSP artwork.
+  // Each track uses its own 1200×900 artwork for crisp Retina rendering.
   document.querySelectorAll('.track-card').forEach((card, i) => {
     if (card.querySelector('.tsp-art')) return;
     const art = document.createElement('div');
     art.className = 'tsp-art';
-    const col = i % 5;
-    const row = Math.floor(i / 5);
-    art.style.setProperty('--art-x', (col * 25) + '%');
-    art.style.setProperty('--art-y', (row * (100 / 6)) + '%');
     art.setAttribute('role', 'img');
     art.setAttribute('aria-label', 'Unique TSP Productions 3D artwork for track ' + (i + 1));
+
+    const img = document.createElement('img');
+    const n = String(i + 1).padStart(2, '0');
+    img.src = 'assets/images/tracks/' + n + '.webp';
+    img.alt = '';
+    img.width = 1200;
+    img.height = 900;
+    img.loading = i < 4 ? 'eager' : 'lazy';
+    img.decoding = 'async';
+    if (i < 4) img.fetchPriority = 'high';
+
+    art.appendChild(img);
     card.insertBefore(art, card.firstChild);
   });
 </script>
