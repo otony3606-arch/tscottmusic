@@ -110,25 +110,62 @@
       .license-row div:last-child{border-bottom:0}
     }
 
-    /* Animated 3D TSP track artwork */
-    .tsp-art{position:relative;height:150px;margin:-2px -2px 18px;border-radius:17px;overflow:hidden;display:grid;place-items:center;perspective:900px;background:
-      radial-gradient(circle at 25% 20%,hsla(var(--h),95%,62%,.42),transparent 32%),
-      radial-gradient(circle at 78% 75%,hsla(calc(var(--h) + 75),95%,55%,.34),transparent 34%),
-      linear-gradient(135deg,#070707 5%,hsl(var(--h) 38% 16%) 52%,#050505 100%);
-      border:1px solid hsla(var(--h),80%,65%,.38);box-shadow:inset 0 0 45px rgba(0,0,0,.7),0 12px 32px rgba(0,0,0,.28)}
-    .tsp-art:before{content:"";position:absolute;inset:-70%;background:conic-gradient(from 0deg,transparent,hsla(var(--h),90%,65%,.18),transparent 28%);animation:tspSweep 7s linear infinite}
-    .tsp-art:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 17px,rgba(255,255,255,.025) 18px 19px);mix-blend-mode:screen}
-    .tsp-sign{position:relative;z-index:2;font-size:clamp(42px,7vw,68px);font-weight:1000;letter-spacing:.04em;color:#f5d889;text-shadow:
-      0 1px 0 #a77d28,0 2px 0 #8a651d,0 3px 0 #725117,0 4px 0 #5b4012,
-      0 9px 18px rgba(0,0,0,.8),0 0 22px hsla(var(--h),95%,65%,.45);
-      transform:rotateX(9deg) rotateY(-8deg) translateZ(24px);animation:tspFloat 4.8s ease-in-out infinite}
-    .tsp-sign small{display:block;text-align:center;font-size:9px;letter-spacing:.42em;color:#fff;text-shadow:0 2px 8px #000;margin-top:-3px}
-    .track-card:hover .tsp-sign{animation:tspPulse 1.15s ease-in-out infinite alternate}
-    .track-card:hover .tsp-art{border-color:var(--accent);box-shadow:inset 0 0 55px rgba(0,0,0,.55),0 18px 42px rgba(0,0,0,.4)}
-    @keyframes tspFloat{0%,100%{transform:rotateX(9deg) rotateY(-8deg) translateY(0) translateZ(24px)}50%{transform:rotateX(4deg) rotateY(8deg) translateY(-8px) translateZ(34px)}}
-    @keyframes tspSweep{to{transform:rotate(360deg)}}
-    @keyframes tspPulse{to{transform:rotateX(3deg) rotateY(4deg) scale(1.07) translateZ(40px);filter:brightness(1.18)}}
-    @media (prefers-reduced-motion:reduce){.tsp-art:before,.tsp-sign,.track-card:hover .tsp-sign{animation:none}}
+    /* 35 unique TSP track artworks with lightweight 3D motion */
+    .tsp-art{
+      position:relative;
+      width:100%;
+      aspect-ratio:4/3;
+      margin:-2px -2px 18px;
+      border-radius:17px;
+      overflow:hidden;
+      background-color:#080808;
+      background-image:url('assets/images/tsp-track-art.webp');
+      background-repeat:no-repeat;
+      background-size:500% 700%;
+      background-position:var(--art-x) var(--art-y);
+      border:1px solid #4b4028;
+      box-shadow:inset 0 0 34px rgba(0,0,0,.18),0 14px 32px rgba(0,0,0,.34);
+      transform-style:preserve-3d;
+      animation:tspArtFloat 7.2s ease-in-out infinite;
+      transition:filter .28s ease,box-shadow .28s ease,transform .28s ease;
+      will-change:transform;
+    }
+    .tsp-art:before{
+      content:"";
+      position:absolute;
+      inset:-35%;
+      background:linear-gradient(110deg,transparent 38%,rgba(255,224,150,.18) 48%,rgba(255,255,255,.24) 50%,rgba(255,224,150,.12) 53%,transparent 63%);
+      transform:translateX(-70%) rotate(6deg);
+      animation:tspArtSheen 6.6s ease-in-out infinite;
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+    .tsp-art:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      box-shadow:inset 0 0 38px rgba(0,0,0,.30),inset 0 0 0 1px rgba(255,215,120,.08);
+      pointer-events:none;
+    }
+    .track-card:nth-child(3n+2) .tsp-art{animation-delay:-1.8s}
+    .track-card:nth-child(3n) .tsp-art{animation-delay:-3.6s}
+    .track-card:hover .tsp-art{
+      filter:brightness(1.08) saturate(1.08);
+      box-shadow:inset 0 0 28px rgba(0,0,0,.14),0 20px 46px rgba(0,0,0,.48),0 0 0 1px rgba(215,177,90,.28);
+    }
+    @keyframes tspArtFloat{
+      0%,100%{transform:perspective(1000px) rotateX(1deg) rotateY(-1.4deg) translateY(0) scale(1.002)}
+      50%{transform:perspective(1000px) rotateX(-1deg) rotateY(1.4deg) translateY(-5px) scale(1.014)}
+    }
+    @keyframes tspArtSheen{
+      0%,28%{transform:translateX(-75%) rotate(6deg);opacity:0}
+      42%{opacity:.8}
+      62%{transform:translateX(75%) rotate(6deg);opacity:0}
+      100%{transform:translateX(75%) rotate(6deg);opacity:0}
+    }
+    @media(max-width:520px){.tsp-art{margin-bottom:14px}}
+    @media(prefers-reduced-motion:reduce){.tsp-art,.tsp-art:before{animation:none}}
 
   </style>
 </head>
@@ -1152,14 +1189,17 @@
 <script defer src="/_vercel/insights/script.js"></script>
 
 <script>
-  // Give every track its own animated 3D TSP sign without adding heavy image files.
+  // Map each of the 35 track cards to its own generated TSP artwork.
   document.querySelectorAll('.track-card').forEach((card, i) => {
     if (card.querySelector('.tsp-art')) return;
     const art = document.createElement('div');
     art.className = 'tsp-art';
-    art.style.setProperty('--h', String((i * 47 + 28) % 360));
-    art.setAttribute('aria-label', 'TSP 3D artwork for track ' + (i + 1));
-    art.innerHTML = '<div class="tsp-sign">TSP<small>PRODUCTIONS</small></div>';
+    const col = i % 5;
+    const row = Math.floor(i / 5);
+    art.style.setProperty('--art-x', (col * 25) + '%');
+    art.style.setProperty('--art-y', (row * (100 / 6)) + '%');
+    art.setAttribute('role', 'img');
+    art.setAttribute('aria-label', 'Unique TSP Productions 3D artwork for track ' + (i + 1));
     card.insertBefore(art, card.firstChild);
   });
 </script>
