@@ -317,7 +317,16 @@ body.has-player{padding-bottom:76px}
 .license-buy-btn{width:100%;margin-top:16px;padding:12px 14px;border:1px solid var(--accent);border-radius:11px;background:var(--accent);color:#090909;font-weight:900;cursor:pointer;transition:transform .16s ease,filter .16s ease}
 .license-buy-btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
 .modal-license [data-action="terms"]{background:#0b0b0b;color:#fff;border-color:#494949}
-</style>
+
+    /* TSP cinematic opening video */
+    .tsp-intro{position:relative;width:100%;height:min(72vw,720px);min-height:360px;background:#000;overflow:hidden;border-bottom:1px solid #3b321f}
+    .tsp-intro video{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+    .tsp-intro:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.03) 65%,rgba(0,0,0,.45))}
+    .tsp-intro-skip{position:absolute;right:22px;bottom:20px;z-index:2;border:1px solid rgba(215,177,90,.72);background:rgba(8,8,8,.72);color:#f3d58d;border-radius:999px;padding:10px 15px;font-weight:900;letter-spacing:.08em;cursor:pointer;backdrop-filter:blur(8px)}
+    @media(max-width:650px){.tsp-intro{height:56.25vw;min-height:220px}.tsp-intro-skip{right:12px;bottom:12px;padding:8px 12px;font-size:11px}}
+    @media(prefers-reduced-motion:reduce){.tsp-intro video{display:none}.tsp-intro{min-height:220px;background:radial-gradient(circle at 50% 50%,#302713,#090909 65%)}}
+
+  </style>
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="TScott Productions | Music Licensing & Producer Catalog" />
