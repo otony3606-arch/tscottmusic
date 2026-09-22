@@ -42,7 +42,7 @@ jobs:
               codec=( -c:a libmp3lame -b:a 192k )
             fi
 
-            ffmpeg -hide_banner -loglevel error -y               -i assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3               -i "$file"               -filter_complex "[0:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[tag];[1:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[track];[tag][track]concat=n=2:v=0:a=1,atrim=duration=45,afade=t=out:st=42.5:d=2.5[out]"               -map "[out]" "${codec[@]}" "$out"
+            ffmpeg -hide_banner -loglevel error -y               -i assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3               -i "$file"               -filter_complex "[0:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[tag];[1:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[track];[track][tag]amix=inputs=2:duration=longest:dropout_transition=0:normalize=0,alimiter=limit=0.95,atrim=duration=45,afade=t=out:st=42.5:d=2.5[out]"               -map "[out]" "${codec[@]}" "$out"
           done
 
       - name: Commit tagged previews
@@ -51,5 +51,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add assets/audio/tagged
           git diff --cached --quiet && exit 0
-          git commit -m 'Add producer tag and fade-outs to web previews'
+          git commit -m 'Start producer tag with music on web previews'
           git push origin main
