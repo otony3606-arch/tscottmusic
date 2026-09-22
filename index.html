@@ -1366,7 +1366,7 @@ body.has-player{padding-bottom:76px}
   const toast=document.getElementById('siteToast');
   let activeCard=null, activeAudio=null, modalCard=null;
 
-  const metric=(name,data={})=>{ try{ if(window.va) window.va('event',{name,data}); }catch(e){} };
+  const metric=(name,data={})=>{ try{ if(window.va) window.va('event',name,data); }catch(e){} };
   const time=s=>{ if(!Number.isFinite(s)) return '0:00'; const m=Math.floor(s/60),x=Math.floor(s%60); return m+':'+String(x).padStart(2,'0'); };
   const trackData=card=>{
     const no=(card.querySelector('.track-no')?.textContent||'').trim();
