@@ -1,4 +1,4 @@
-name: Import producer tag
+name: Build tagged fade-out previews
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  import-tag:
+  build-tagged-previews:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -19,17 +19,32 @@ jobs:
         with:
           ref: main
 
-      - name: Download producer tag into site assets
+      - name: Verify producer tag
         run: |
-          mkdir -p assets/audio/tags
-          curl -L --fail --retry 3 'https://dnznrvs05pmza.cloudfront.net/text_to_speech/bcfe6dea-64b0-4c74-bacf-16d52d56de0a/TScott_Ratchet_01___Jumpin.mp3?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZWM0MGRlYzU5MTQ1OGFjYyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDE5NTkwOX0.QuFwbQ2ob_FOeQpf_Q1i2WuLBPOrQcsfW_nS3ighWe0' -o assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3
           test -s assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3
 
-      - name: Commit imported tag
+      - name: Build tagged 45-second previews with fade-outs
+        run: |
+          mkdir -p assets/audio/tagged
+          for file in assets/audio/*.mp3 assets/audio/*.m4a; do
+            [ -f "$file" ] || continue
+            base="$(basename "$file")"
+            out="assets/audio/tagged/$base"
+
+            if [[ "$file" == *.m4a ]]; then
+              codec=( -c:a aac -b:a 192k )
+            else
+              codec=( -c:a libmp3lame -b:a 192k )
+            fi
+
+            ffmpeg -hide_banner -loglevel error -y               -i assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3               -i "$file"               -filter_complex "[0:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[tag];[1:a]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo[track];[tag][track]concat=n=2:v=0:a=1,atrim=duration=45,afade=t=out:st=42.5:d=2.5[out]"               -map "[out]" "${codec[@]}" "$out"
+          done
+
+      - name: Commit tagged previews
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3
+          git add assets/audio/tagged
           git diff --cached --quiet && exit 0
-          git commit -m 'Add Jumpin producer tag audio asset'
+          git commit -m 'Add producer tag and fade-outs to web previews'
           git push origin main
