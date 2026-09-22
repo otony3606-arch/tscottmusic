@@ -188,16 +188,16 @@
 .track-share:hover{border-color:var(--accent);color:var(--accent)}
 .track-card[hidden]{display:none!important}
 .shop-btn.track-detail-btn{transition:transform .16s ease,border-color .16s ease,color .16s ease}
-.tsp-player{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(8,8,8,.96);backdrop-filter:blur(18px);border-top:1px solid #3d3422;transform:translateY(110%);transition:transform .28s ease;box-shadow:0 -18px 44px rgba(0,0,0,.36)}
-.tsp-player.active{transform:translateY(0)}
+.tsp-player{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(8,8,8,.96);backdrop-filter:blur(18px);border-top:1px solid #3d3422;transform:translateY(110%);transition:transform .28s ease,visibility .28s ease;box-shadow:0 -18px 44px rgba(0,0,0,.36);visibility:hidden;pointer-events:none}
+.tsp-player.active{transform:translateY(0);visibility:visible;pointer-events:auto}
 .tsp-player-inner{max-width:1140px;margin:auto;padding:12px 22px;display:grid;grid-template-columns:minmax(180px,1fr) minmax(260px,1.5fr) auto;gap:18px;align-items:center}
 .now-meta{min-width:0}.now-label{color:var(--accent);font-size:10px;letter-spacing:.14em;font-weight:900}.now-title{font-size:15px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.now-progress{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;font-size:10px;color:var(--muted)}
 .now-progress input{width:100%;accent-color:var(--accent)}
 .now-controls{display:flex;gap:8px}.now-controls button{appearance:none;border:1px solid #454545;background:#121212;color:#fff;border-radius:10px;padding:10px 13px;font-weight:900;cursor:pointer}
 .now-controls .now-play{background:var(--accent);color:#070707;border-color:var(--accent);min-width:76px}
 .now-controls .now-license{border-color:#6a572e;color:var(--accent)}
-.track-modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.82);backdrop-filter:blur(8px)}
-.track-modal.open{display:flex}
+.track-modal{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);opacity:0;visibility:hidden;pointer-events:none}
+.track-modal.open{opacity:1;visibility:visible;pointer-events:auto}
 .track-modal-panel{width:min(760px,100%);max-height:90vh;overflow:auto;background:#111;border:1px solid #4b4028;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.55);padding:22px}
 .track-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
 .track-modal-kicker{color:var(--accent);font-size:11px;letter-spacing:.14em;font-weight:900}
@@ -209,18 +209,16 @@
 .modal-note{margin-top:14px;padding:12px 14px;border:1px solid #333;border-radius:12px;color:var(--muted);font-size:12px;background:#0b0b0b}
 .toast{position:fixed;left:50%;bottom:96px;z-index:90;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#f3e3b5;color:#111;padding:11px 15px;border-radius:999px;font-size:12px;font-weight:900;transition:.22s ease;box-shadow:0 12px 30px rgba(0,0,0,.35)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-.mobile-nav{display:none}
+.mobile-nav{display:none!important}
 body.has-player{padding-bottom:76px}
 @media(max-width:800px){
   .proof-strip .wrap{grid-template-columns:repeat(2,1fr)}
   .store-tools{top:65px;display:grid;grid-template-columns:1fr auto}.store-search{grid-column:1/-1}.store-sort{min-width:130px}.store-results{text-align:right}
   .tsp-player-inner{grid-template-columns:1fr auto;gap:10px;padding:10px 14px}.now-progress{grid-column:1/-1;grid-row:2}.now-controls .now-license{display:none}
   .modal-license-grid{grid-template-columns:1fr}
-  .mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:8px;right:8px;bottom:8px;z-index:35;background:rgba(12,12,12,.96);backdrop-filter:blur(16px);border:1px solid #3c3322;border-radius:16px;overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,.5)}
-  .mobile-nav a{padding:10px 4px 9px;text-align:center;color:#d2d2d2;font-size:10px;font-weight:900;letter-spacing:.04em}.mobile-nav a b{display:block;color:var(--accent);font-size:15px;line-height:1.2;margin-bottom:2px}
-  body{padding-bottom:72px}.tsp-player{bottom:68px}body.has-player{padding-bottom:145px}.toast{bottom:158px}
+  .mobile-nav{display:none!important}.tsp-player{bottom:0}body{padding-bottom:0}body.has-player{padding-bottom:88px}.toast{bottom:96px}
 }
-@media(max-width:520px){.proof-item{padding:14px 8px}.proof-item strong{font-size:15px}.store-tools{position:relative;top:auto}.store-sort{width:100%}.store-results{align-self:center}}
+@media(max-width:800px){.store-tools{position:relative!important;top:auto!important;z-index:1!important}} @media(max-width:520px){.proof-item{padding:14px 8px}.proof-item strong{font-size:15px}.store-tools{position:relative;top:auto}.store-sort{width:100%}.store-results{align-self:center}}
 
 
 .exclusive-summary{margin-top:18px;padding:18px;border:1px solid #4b4028;border-radius:16px;background:#15120c}
@@ -1367,12 +1365,6 @@ body.has-player{padding-bottom:76px}
   </div>
 </div>
 
-<nav class="mobile-nav" aria-label="Mobile navigation">
-  <a href="#store"><b>♫</b>BEATS</a>
-  <a href="#featured"><b>★</b>CREDITS</a>
-  <a href="#film"><b>▣</b>FILM</a>
-  <a href="#licensing"><b>$</b>LICENSE</a>
-</nav>
 <div class="toast" id="siteToast" role="status"></div>
 <footer>
   <div class="wrap">© TScott Productions. Producer • Songwriter • Executive Producer.</div>
