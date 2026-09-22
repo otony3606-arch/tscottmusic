@@ -131,14 +131,16 @@
       isolation:isolate;
     }
     .tsp-art img{
+      position:absolute;
       display:block;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
+      width:500%;
+      height:700%;
+      max-width:none;
+      left:calc(var(--cover-col) * -100%);
+      top:calc(var(--cover-row) * -100%);
+      object-fit:fill;
       image-rendering:auto;
-      filter:saturate(1.12) contrast(1.04);
-      transform:scale(1.01);
+      filter:saturate(1.06) contrast(1.02);
     }
     .tsp-cover-brand{
       position:absolute;
@@ -281,7 +283,7 @@
 .track-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
 .track-modal-kicker{color:var(--accent);font-size:11px;letter-spacing:.14em;font-weight:900}
 .track-modal h3{font-size:30px;margin:4px 0 6px}.modal-close{appearance:none;border:1px solid #444;background:#080808;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px}
-.modal-art{aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid #333;margin:18px 0;background:#090909}.modal-art img{width:100%;height:100%;object-fit:cover;display:block}
+.modal-art{aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:1px solid #333;margin:18px 0;background:#090909;position:relative}.modal-art img{position:absolute;display:block;width:500%;height:700%;max-width:none;object-fit:fill}
 .modal-license-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
 .modal-license{border:1px solid #3f3f3f;border-radius:14px;padding:14px;background:#0b0b0b}.modal-license strong{display:block;font-size:21px;color:var(--accent);margin:5px 0}.modal-license span{font-size:11px;color:var(--muted)}
 .modal-license button,.modal-share{width:100%;margin-top:12px;border:1px solid #5f4d28;background:#17130b;color:var(--accent);padding:10px;border-radius:9px;font-weight:900;cursor:pointer}
@@ -1462,44 +1464,27 @@ body.has-player{padding-bottom:76px}
 <script defer src="/_vercel/insights/script.js"></script>
 
 <script>
-  // Each track uses its own 1200×900 artwork for crisp Retina rendering.
+  // Final 35-cover neon TSP artwork sheet — each card displays one exact cover tile.
   document.querySelectorAll('.track-card').forEach((card, i) => {
     if (card.querySelector('.tsp-art')) return;
     const art = document.createElement('div');
     art.className = 'tsp-art';
     art.setAttribute('role', 'img');
-    art.setAttribute('aria-label', 'Unique TSP Productions 3D artwork for track ' + (i + 1));
+    art.setAttribute('aria-label', 'TSP Productions 3D cover artwork ' + (i + 1));
 
     const img = document.createElement('img');
-    const n = String(i + 1).padStart(2, '0');
-    const title = (card.querySelector('h3')?.textContent || ('Track ' + n)).trim();
-    art.style.setProperty('--cover-hue', String((i * 47 + 205) % 360));
-    img.src = 'assets/images/tracks/' + n + '.webp?v=20260922coverfinish';
+    const col = i % 5;
+    const row = Math.floor(i / 5);
+    card.dataset.artIndex = String(i);
+    img.src = 'assets/images/tsp-covers-sprite.webp?v=20260922final35';
     img.alt = '';
-    img.width = 1200;
-    img.height = 900;
     img.loading = i < 6 ? 'eager' : 'lazy';
     img.decoding = 'async';
     if (i < 6) img.fetchPriority = 'high';
+    img.style.setProperty('--cover-col', String(col));
+    img.style.setProperty('--cover-row', String(row));
 
-    const brand = document.createElement('div');
-    brand.className = 'tsp-cover-brand';
-    brand.innerHTML = '<strong>TSCOTT PRODUCTIONS</strong><span>MUSIC MOVES DIFFERENT</span>';
-
-    const caption = document.createElement('div');
-    caption.className = 'tsp-cover-caption';
-    const no = document.createElement('span');
-    no.className = 'tsp-cover-no';
-    no.textContent = String(i + 1);
-    const name = document.createElement('span');
-    name.className = 'tsp-cover-title';
-    name.textContent = title;
-    const credit = document.createElement('span');
-    credit.className = 'tsp-cover-credit';
-    credit.textContent = 'PROD. BY TSCOTT';
-    caption.append(no, name, credit);
-
-    art.append(img, brand, caption);
+    art.appendChild(img);
     card.insertBefore(art, card.firstChild);
   });
 </script>
@@ -1535,7 +1520,8 @@ body.has-player{padding-bottom:76px}
     const title=(card.querySelector('h3')?.textContent||'Track').trim();
     const audio=card.querySelector('audio');
     const art=card.querySelector('.tsp-art img')?.src||'';
-    return {no,title,audio,art,slug:'track-'+no};
+    const artIndex=Number(card.dataset.artIndex||0);
+    return {no,title,audio,art,artIndex,slug:'track-'+no};
   };
   const tell=msg=>{toast.textContent=msg;toast.classList.add('show');clearTimeout(tell.t);tell.t=setTimeout(()=>toast.classList.remove('show'),2200);};
   const checkoutLinks={
@@ -1600,8 +1586,11 @@ body.has-player{padding-bottom:76px}
   function openModal(card){
     modalCard=card;const d=trackData(card);
     modalTitle.textContent=d.title;modalNo.textContent='TSP TRACK '+d.no;
-    modalArt.src=d.art||('assets/images/tracks/'+d.no+'.webp?v=20260922sharp2');
-    modalArt.alt='TSP artwork for '+d.title;
+    modalArt.src=d.art||'assets/images/tsp-covers-sprite.webp?v=20260922final35';
+    const col=d.artIndex%5,row=Math.floor(d.artIndex/5);
+    modalArt.style.left=(-col*100)+'%';
+    modalArt.style.top=(-row*100)+'%';
+    modalArt.alt='TSP 3D cover artwork for '+d.title;
     modal.classList.add('open');document.body.style.overflow='hidden';
     metric('track_detail_open',{track:d.no,title:d.title});
   }
