@@ -1,0 +1,35 @@
+name: Import producer tag
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-producer-tag.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Download producer tag into site assets
+        run: |
+          mkdir -p assets/audio/tags
+          curl -L --fail --retry 3 'https://dnznrvs05pmza.cloudfront.net/text_to_speech/bcfe6dea-64b0-4c74-bacf-16d52d56de0a/TScott_Ratchet_01___Jumpin.mp3?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZWM0MGRlYzU5MTQ1OGFjYyIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDE5NTkwOX0.QuFwbQ2ob_FOeQpf_Q1i2WuLBPOrQcsfW_nS3ighWe0' -o assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3
+          test -s assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3
+
+      - name: Commit imported tag
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/audio/tags/TScott_Ratchet_01_Jumpin.mp3
+          git diff --cached --quiet && exit 0
+          git commit -m 'Add Jumpin producer tag audio asset'
+          git push origin main
