@@ -235,6 +235,10 @@ body.has-player{padding-bottom:76px}
 .modal-exclusive-copy b{color:#fff}
 @media(max-width:620px){.license-terms-body,.license-terms-head{padding:18px}.license-terms-head h3{font-size:24px}}
 
+
+.license-buy-btn{width:100%;margin-top:16px;padding:12px 14px;border:1px solid var(--accent);border-radius:11px;background:var(--accent);color:#090909;font-weight:900;cursor:pointer;transition:transform .16s ease,filter .16s ease}
+.license-buy-btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.modal-license [data-action="terms"]{background:#0b0b0b;color:#fff;border-color:#494949}
 </style>
 
   <meta property="og:type" content="website" />
@@ -1255,9 +1259,9 @@ body.has-player{padding-bottom:76px}
     <h2>Music Licensing</h2>
     <p class="section-copy">Choose the format that fits the project. Pricing below is per track.</p>
     <div class="grid">
-      <div class="card"><h3>MP3 Lease</h3><div class="price">$99.99</div><p>Entry-level license for a selected track delivered as an MP3.</p><span class="label">Per track</span></div>
-      <div class="card"><h3>WAV License</h3><div class="price">$300</div><p>Higher-quality WAV delivery for a selected track.</p><span class="label">Per track</span></div>
-      <div class="card"><h3>Trackouts / Exclusive</h3><div class="price">$1,000</div><p>Includes WAV + available stems/trackouts and exclusive commercial use of the selected instrumental for one original song. Previously issued licenses remain valid. Copyright ownership, publishing, songwriter splits, producer royalties and other backend rights are not transferred or waived unless specifically agreed to in writing.</p><span class="label">Per track</span><div class="exclusive-summary"><h3>Exclusive License Summary</h3><p><b>Producer credit:</b> Produced by T-Scott / TScott Productions. By purchasing, the buyer agrees to the full Exclusive License Terms below.</p><a href="#exclusive-terms">READ FULL EXCLUSIVE LICENSE TERMS ↓</a></div></div>
+      <div class="card"><h3>MP3 Lease</h3><div class="price">$99.99</div><p>Entry-level license for a selected track delivered as an MP3.</p><span class="label">Per track</span><button class="license-buy-btn" type="button" data-tier="mp3">BUY MP3 LICENSE</button></div>
+      <div class="card"><h3>WAV License</h3><div class="price">$300</div><p>Higher-quality WAV delivery for a selected track.</p><span class="label">Per track</span><button class="license-buy-btn" type="button" data-tier="wav">BUY WAV LICENSE</button></div>
+      <div class="card"><h3>Trackouts / Exclusive</h3><div class="price">$1,000</div><p>Includes WAV + available stems/trackouts and exclusive commercial use of the selected instrumental for one original song. Previously issued licenses remain valid. Copyright ownership, publishing, songwriter splits, producer royalties and other backend rights are not transferred or waived unless specifically agreed to in writing.</p><span class="label">Per track</span><button class="license-buy-btn" type="button" data-tier="exclusive">BUY EXCLUSIVE LICENSE</button><div class="exclusive-summary"><h3>Exclusive License Summary</h3><p><b>Producer credit:</b> Produced by T-Scott / TScott Productions. By purchasing, the buyer agrees to the full Exclusive License Terms below.</p><a href="#exclusive-terms">READ FULL EXCLUSIVE LICENSE TERMS ↓</a></div></div>
     </div>
 
 <div class="license-terms" id="exclusive-terms">
@@ -1346,11 +1350,11 @@ body.has-player{padding-bottom:76px}
     </div>
     <div class="modal-art"><img id="modalArt" alt="" /></div>
     <div class="modal-license-grid">
-      <div class="modal-license"><span>MP3 LEASE</span><strong>$99.99</strong><small>Selected track • MP3 delivery</small><button type="button" data-license="mp3">SELECT MP3</button></div>
-      <div class="modal-license"><span>WAV LICENSE</span><strong>$300</strong><small>Selected track • WAV delivery</small><button type="button" data-license="wav">SELECT WAV</button></div>
-      <div class="modal-license"><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong><small>WAV + available stems/trackouts • exclusive commercial use for one original song</small><div class="modal-exclusive-copy"><b>Exclusive license:</b> Previously issued licenses remain valid. Copyright ownership, publishing, songwriter splits, producer royalties and other backend rights are not transferred or waived unless specifically agreed to in writing.<br><br><b>Credit:</b> Produced by T-Scott / TScott Productions.</div><button type="button" data-license="exclusive">VIEW FULL TERMS</button></div>
+      <div class="modal-license"><span>MP3 LEASE</span><strong>$99.99</strong><small>Selected track • MP3 delivery</small><button type="button" data-license="mp3">BUY MP3 — $99.99</button></div>
+      <div class="modal-license"><span>WAV LICENSE</span><strong>$300</strong><small>Selected track • WAV delivery</small><button type="button" data-license="wav">BUY WAV — $300</button></div>
+      <div class="modal-license"><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong><small>WAV + available stems/trackouts • exclusive commercial use for one original song</small><div class="modal-exclusive-copy"><b>Exclusive license:</b> Previously issued licenses remain valid. Copyright ownership, publishing, songwriter splits, producer royalties and other backend rights are not transferred or waived unless specifically agreed to in writing.<br><br><b>Credit:</b> Produced by T-Scott / TScott Productions.</div><button type="button" data-action="terms">VIEW FULL TERMS</button><button type="button" data-license="exclusive">BUY EXCLUSIVE — $1,000</button></div>
     </div>
-    <div class="modal-note">Secure checkout is being connected to the live T Scott Productions Stripe account. The track you select is preserved as the order reference.</div>
+    <div class="modal-note">Secure card checkout is live through Stripe. The selected track is attached to the order reference so TScott Productions can match the purchase to the correct music.</div>
     <button class="modal-share" id="modalShare" type="button">SHARE THIS TRACK</button>
   </div>
 </div>
@@ -1444,6 +1448,22 @@ body.has-player{padding-bottom:76px}
     return {no,title,audio,art,slug:'track-'+no};
   };
   const tell=msg=>{toast.textContent=msg;toast.classList.add('show');clearTimeout(tell.t);tell.t=setTimeout(()=>toast.classList.remove('show'),2200);};
+  const checkoutLinks={
+    mp3:'https://buy.stripe.com/dRm5kw433gmg1CEgBg2oE00',
+    wav:'https://buy.stripe.com/14A9AM2YZ4Dya9aet82oE01',
+    exclusive:'https://buy.stripe.com/5kQcMY6bbda4epqdp42oE02'
+  };
+  const checkoutFor=(tier,card)=>{
+    if(!card){tell('Choose a track first');document.getElementById('store')?.scrollIntoView({behavior:'smooth'});return;}
+    const d=trackData(card);
+    const cleanTitle=d.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,120);
+    const ref=('track-'+d.no+'-'+cleanTitle).slice(0,190);
+    const base=checkoutLinks[tier];
+    if(!base){tell('Checkout unavailable');return;}
+    metric('checkout_open',{track:d.no,title:d.title,tier});
+    const joiner=base.includes('?')?'&':'?';
+    location.href=base+joiner+'client_reference_id='+encodeURIComponent(ref)+'&utm_source=tsp_site&utm_medium=web&utm_campaign=music_license';
+  };
 
   cards.forEach(card=>{
     const d=trackData(card);
@@ -1526,9 +1546,18 @@ body.has-player{padding-bottom:76px}
   modal?.querySelectorAll('[data-license]').forEach(btn=>btn.addEventListener('click',()=>{
     if(!modalCard)return;const d=trackData(modalCard),tier=btn.dataset.license;
     metric('license_interest',{track:d.no,title:d.title,tier});
-    if(tier==='exclusive'){closeModal();document.getElementById('exclusive-terms')?.scrollIntoView({behavior:'smooth',block:'start'});tell('Full Exclusive License Terms');return;}
-    tell('Secure '+tier.toUpperCase()+' checkout is being connected');
+    checkoutFor(tier,modalCard);
   }));
+  modal?.querySelector('[data-action="terms"]')?.addEventListener('click',()=>{
+    closeModal();document.getElementById('exclusive-terms')?.scrollIntoView({behavior:'smooth',block:'start'});tell('Full Exclusive License Terms');
+  });
+  document.querySelectorAll('.license-buy-btn').forEach(btn=>btn.addEventListener('click',()=>{
+    const chosen=modalCard||activeCard;
+    checkoutFor(btn.dataset.tier,chosen);
+  }));
+
+  const purchase=new URLSearchParams(location.search).get('purchase');
+  if(purchase === 'success') setTimeout(()=>tell('Payment complete — thank you. TScott Productions has your order.'),350);
 
   if(location.hash && /^#track-\d{2}$/.test(location.hash)){
     const target=document.querySelector(location.hash);
