@@ -1,0 +1,95 @@
+name: Analyze track metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/analyze-track-metadata.yml'
+      - 'assets/audio/*.mp3'
+      - 'assets/audio/*.m4a'
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Install analysis dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install librosa soundfile
+      - name: Analyze catalog
+        run: |
+          mkdir -p assets/data
+          python <<'PY'
+          import glob, json, os, re
+          import numpy as np
+          import librosa
+
+          def clean_title(path):
+              name=os.path.basename(path)
+              name=re.sub(r'\.(mp3|m4a)$','',name,flags=re.I)
+              name=re.sub(r'^\d{2}-','',name)
+              return name.replace('-',' ').strip()
+
+          def genre_for(title,bpm):
+              s=title.lower()
+              if any(k in s for k in ['love','body','velvet','midnight','waiting','hear you','after hours']):
+                  return 'R&B'
+              if any(k in s for k in ['neon','stargate','come alive']):
+                  return 'Pop / Crossover'
+              if any(k in s for k in ['money','grind','project','creed','street','poppin','crown','stakes','ceiling','top floor','silo']):
+                  return 'Hip-Hop / Trap'
+              return 'Hip-Hop / R&B'
+
+          def mood_for(bpm,energy,centroid):
+              if bpm >= 128 or energy >= .22:
+                  return 'High Energy'
+              if bpm <= 88 and centroid < 2100:
+                  return 'Smooth'
+              if centroid < 1800 and energy >= .10:
+                  return 'Dark'
+              if 89 <= bpm <= 112:
+                  return 'Late Night'
+              return 'Confident'
+
+          files=sorted(glob.glob('assets/audio/*.mp3')+glob.glob('assets/audio/*.m4a'))
+          out=[]
+          for i,path in enumerate(files,1):
+              y,sr=librosa.load(path,sr=22050,mono=True,duration=45)
+              if len(y)==0:
+                  bpm=0; energy=0; centroid=0
+              else:
+                  tempo=librosa.feature.tempo(y=y,sr=sr,aggregate=np.median)
+                  bpm=float(np.atleast_1d(tempo)[0]) if np.size(tempo) else 0
+                  energy=float(np.mean(librosa.feature.rms(y=y)))
+                  centroid=float(np.mean(librosa.feature.spectral_centroid(y=y,sr=sr)))
+              title=clean_title(path)
+              low=title.lower()
+              track_type='Freestyle' if 'freestyle' in low else ('Intro' if 'intro' in low or 'ntro' in low else 'Beat')
+              out.append({
+                  'file':os.path.basename(path),
+                  'number':f'{i:02d}',
+                  'title':title,
+                  'bpm':int(round(bpm)) if bpm else None,
+                  'genre':genre_for(title,bpm),
+                  'mood':mood_for(bpm,energy,centroid),
+                  'type':track_type
+              })
+          with open('assets/data/tracks.json','w') as f:
+              json.dump(out,f,indent=2)
+          print(json.dumps(out,indent=2))
+          PY
+      - name: Commit metadata
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/data/tracks.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Add analyzed BPM and catalog metadata'
+          git push origin main
