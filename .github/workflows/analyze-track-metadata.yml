@@ -21,13 +21,15 @@ jobs:
           ref: main
       - name: Install analysis dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
           python -m pip install --upgrade pip
           python -m pip install librosa soundfile
       - name: Analyze catalog
         run: |
           mkdir -p assets/data
           python <<'PY'
-          import glob, json, os, re
+          import glob, json, os, re, subprocess, tempfile
           import numpy as np
           import librosa
 
@@ -67,7 +69,16 @@ jobs:
               if not os.path.exists(path):
                   continue
               title=re.sub(r'<[^>]+>','',title_html).strip()
-              y,sr=librosa.load(path,sr=22050,mono=True,duration=45)
+              tmp=None
+              analyze_path=path
+              if path.lower().endswith('.m4a'):
+                  fd,tmp=tempfile.mkstemp(suffix='.wav'); os.close(fd)
+                  subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-i',path,'-t','45','-ac','1','-ar','22050',tmp],check=True)
+                  analyze_path=tmp
+              y,sr=librosa.load(analyze_path,sr=22050,mono=True,duration=45)
+              if tmp:
+                  try: os.remove(tmp)
+                  except OSError: pass
               if len(y)==0:
                   bpm=0; energy=0; centroid=0
               else:
