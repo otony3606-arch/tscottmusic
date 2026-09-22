@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- TScott Productions 20-track upload-ready site package -->
+<!-- TScott Productions 35-track premium music storefront -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -164,7 +164,86 @@
     @media(max-width:520px){.tsp-art{margin-bottom:14px}}
     @media(prefers-reduced-motion:reduce){.tsp-art:before{animation:none}}
 
-  </style>
+  
+/* Premium Storefront Upgrade — 2026-09-22 */
+.proof-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0d0d0d}
+.proof-strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;padding-top:0;padding-bottom:0;background:var(--line)}
+.proof-item{background:#0d0d0d;padding:18px 14px;text-align:center}
+.proof-item strong{display:block;color:var(--accent);font-size:18px;line-height:1.1}
+.proof-item span{display:block;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+.store-tools{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:24px 0 26px;padding:14px;border:1px solid var(--line);border-radius:16px;background:#101010;position:sticky;top:72px;z-index:7;box-shadow:0 14px 35px rgba(0,0,0,.22)}
+.store-search{flex:1;display:flex;align-items:center;gap:10px;min-width:0}
+.store-search input,.store-sort{width:100%;background:#080808;color:var(--text);border:1px solid #333;border-radius:12px;padding:12px 14px;font:inherit;outline:none}
+.store-search input:focus,.store-sort:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(215,177,90,.10)}
+.store-sort{width:auto;min-width:150px}
+.store-results{font-size:12px;color:var(--muted);white-space:nowrap}
+.track-card{position:relative;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.track-card:hover{transform:translateY(-3px);border-color:#4b4028;box-shadow:0 18px 42px rgba(0,0,0,.32)}
+.track-card.is-playing{border-color:var(--accent);box-shadow:0 0 0 1px rgba(215,177,90,.35),0 18px 42px rgba(0,0,0,.35)}
+.track-card audio{display:none!important}
+.track-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 14px}
+.track-play,.track-share{appearance:none;border:1px solid #494949;background:#0a0a0a;color:var(--text);border-radius:11px;padding:11px 12px;font-weight:900;letter-spacing:.05em;cursor:pointer}
+.track-play{background:var(--accent);border-color:var(--accent);color:#0a0a0a}
+.track-play:hover,.track-share:hover,.shop-btn:hover{transform:translateY(-1px)}
+.track-share:hover{border-color:var(--accent);color:var(--accent)}
+.track-card[hidden]{display:none!important}
+.shop-btn.track-detail-btn{transition:transform .16s ease,border-color .16s ease,color .16s ease}
+.tsp-player{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(8,8,8,.96);backdrop-filter:blur(18px);border-top:1px solid #3d3422;transform:translateY(110%);transition:transform .28s ease;box-shadow:0 -18px 44px rgba(0,0,0,.36)}
+.tsp-player.active{transform:translateY(0)}
+.tsp-player-inner{max-width:1140px;margin:auto;padding:12px 22px;display:grid;grid-template-columns:minmax(180px,1fr) minmax(260px,1.5fr) auto;gap:18px;align-items:center}
+.now-meta{min-width:0}.now-label{color:var(--accent);font-size:10px;letter-spacing:.14em;font-weight:900}.now-title{font-size:15px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.now-progress{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;font-size:10px;color:var(--muted)}
+.now-progress input{width:100%;accent-color:var(--accent)}
+.now-controls{display:flex;gap:8px}.now-controls button{appearance:none;border:1px solid #454545;background:#121212;color:#fff;border-radius:10px;padding:10px 13px;font-weight:900;cursor:pointer}
+.now-controls .now-play{background:var(--accent);color:#070707;border-color:var(--accent);min-width:76px}
+.now-controls .now-license{border-color:#6a572e;color:var(--accent)}
+.track-modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.82);backdrop-filter:blur(8px)}
+.track-modal.open{display:flex}
+.track-modal-panel{width:min(760px,100%);max-height:90vh;overflow:auto;background:#111;border:1px solid #4b4028;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.55);padding:22px}
+.track-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.track-modal-kicker{color:var(--accent);font-size:11px;letter-spacing:.14em;font-weight:900}
+.track-modal h3{font-size:30px;margin:4px 0 6px}.modal-close{appearance:none;border:1px solid #444;background:#080808;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px}
+.modal-art{aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid #333;margin:18px 0;background:#090909}.modal-art img{width:100%;height:100%;object-fit:cover;display:block}
+.modal-license-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.modal-license{border:1px solid #3f3f3f;border-radius:14px;padding:14px;background:#0b0b0b}.modal-license strong{display:block;font-size:21px;color:var(--accent);margin:5px 0}.modal-license span{font-size:11px;color:var(--muted)}
+.modal-license button,.modal-share{width:100%;margin-top:12px;border:1px solid #5f4d28;background:#17130b;color:var(--accent);padding:10px;border-radius:9px;font-weight:900;cursor:pointer}
+.modal-note{margin-top:14px;padding:12px 14px;border:1px solid #333;border-radius:12px;color:var(--muted);font-size:12px;background:#0b0b0b}
+.toast{position:fixed;left:50%;bottom:96px;z-index:90;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#f3e3b5;color:#111;padding:11px 15px;border-radius:999px;font-size:12px;font-weight:900;transition:.22s ease;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.mobile-nav{display:none}
+body.has-player{padding-bottom:76px}
+@media(max-width:800px){
+  .proof-strip .wrap{grid-template-columns:repeat(2,1fr)}
+  .store-tools{top:65px;display:grid;grid-template-columns:1fr auto}.store-search{grid-column:1/-1}.store-sort{min-width:130px}.store-results{text-align:right}
+  .tsp-player-inner{grid-template-columns:1fr auto;gap:10px;padding:10px 14px}.now-progress{grid-column:1/-1;grid-row:2}.now-controls .now-license{display:none}
+  .modal-license-grid{grid-template-columns:1fr}
+  .mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:8px;right:8px;bottom:8px;z-index:35;background:rgba(12,12,12,.96);backdrop-filter:blur(16px);border:1px solid #3c3322;border-radius:16px;overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,.5)}
+  .mobile-nav a{padding:10px 4px 9px;text-align:center;color:#d2d2d2;font-size:10px;font-weight:900;letter-spacing:.04em}.mobile-nav a b{display:block;color:var(--accent);font-size:15px;line-height:1.2;margin-bottom:2px}
+  body{padding-bottom:72px}.tsp-player{bottom:68px}body.has-player{padding-bottom:145px}.toast{bottom:158px}
+}
+@media(max-width:520px){.proof-item{padding:14px 8px}.proof-item strong{font-size:15px}.store-tools{position:relative;top:auto}.store-sort{width:100%}.store-results{align-self:center}}
+
+</style>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TScott Productions | Music Licensing & Producer Catalog" />
+  <meta property="og:description" content="Preview 35 TScott Productions tracks, explore major record and film credits, and choose music licensing options." />
+  <meta property="og:url" content="https://tonyscottproductionssite.vercel.app/" />
+  <meta property="og:image" content="https://tonyscottproductionssite.vercel.app/assets/images/tony-hero-hq.webp?v=20260922sharp2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TScott Productions | Music Licensing & Producer Catalog" />
+  <meta name="twitter:description" content="35 tracks, producer credits, film placements and music licensing from TScott Productions." />
+  <meta name="twitter:image" content="https://tonyscottproductionssite.vercel.app/assets/images/tony-hero-hq.webp?v=20260922sharp2" />
+  <link rel="canonical" href="https://tonyscottproductionssite.vercel.app/" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"TScott Productions",
+    "url":"https://tonyscottproductionssite.vercel.app/",
+    "description":"Music production, songwriting, executive production, film and soundtrack placements, and music licensing.",
+    "image":"https://tonyscottproductionssite.vercel.app/assets/images/tony-hero-hq.webp?v=20260922sharp2"
+  }
+  </script>
 </head>
 <body data-image-build="sharp2">
 
@@ -201,6 +280,15 @@
   </div>
 </header>
 
+<div class="proof-strip" aria-label="TScott Productions highlights">
+  <div class="wrap">
+    <div class="proof-item"><strong>35 Tracks</strong><span>Ready to preview</span></div>
+    <div class="proof-item"><strong>45 Seconds</strong><span>Protected previews</span></div>
+    <div class="proof-item"><strong>Film + Records</strong><span>Placement experience</span></div>
+    <div class="proof-item"><strong>3 License Tiers</strong><span>Per track options</span></div>
+  </div>
+</div>
+
 <section id="store">
   <div class="wrap">
     <div class="store-intro">
@@ -211,7 +299,19 @@
       </div>
       <div class="store-count">35 TRACKS • 3 LICENSE OPTIONS</div>
     </div>
-    <div class="track-grid">
+    
+<div class="store-tools" role="search" aria-label="Search music catalog">
+  <div class="store-search">
+    <input id="trackSearch" type="search" placeholder="Search 35 tracks by title or number…" autocomplete="off" aria-label="Search tracks" />
+  </div>
+  <select id="trackSort" class="store-sort" aria-label="Sort tracks">
+    <option value="number">Track #</option>
+    <option value="az">Title A–Z</option>
+    <option value="za">Title Z–A</option>
+  </select>
+  <div id="storeResults" class="store-results">35 showing</div>
+</div>
+<div class="track-grid" id="trackGrid">
       
       <article class="track-card">
         <div class="track-head">
@@ -227,7 +327,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -245,7 +345,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -263,7 +363,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -281,7 +381,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -299,7 +399,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -317,7 +417,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -335,7 +435,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -353,7 +453,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -371,7 +471,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -389,7 +489,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -407,7 +507,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -425,7 +525,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -443,7 +543,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -461,7 +561,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -479,7 +579,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -497,7 +597,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -515,7 +615,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -533,7 +633,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -551,7 +651,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -569,7 +669,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -587,7 +687,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -605,7 +705,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -623,7 +723,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -641,7 +741,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -659,7 +759,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -677,7 +777,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -695,7 +795,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -713,7 +813,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -731,7 +831,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -749,7 +849,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
 
@@ -767,7 +867,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
 
       <article class="track-card">
@@ -784,7 +884,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
 
       <article class="track-card">
@@ -801,7 +901,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
 
       <article class="track-card">
@@ -818,7 +918,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
 
       <article class="track-card">
@@ -835,7 +935,7 @@
           <div><span>WAV LICENSE</span><strong>$300</strong></div>
           <div><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong></div>
         </div>
-        <button class="shop-btn" type="button" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">VIEW LICENSE OPTIONS</button>
+        <button class="shop-btn track-detail-btn" type="button">DETAILS / LICENSE</button>
       </article>
     
     </div>
@@ -1169,6 +1269,39 @@
   </div>
 </section>
 
+
+<div class="track-modal" id="trackModal" role="dialog" aria-modal="true" aria-labelledby="modalTrackTitle">
+  <div class="track-modal-panel">
+    <div class="track-modal-head">
+      <div><div class="track-modal-kicker" id="modalTrackNo">TSP TRACK</div><h3 id="modalTrackTitle">Track</h3><div class="preview-tag">45-SECOND TAGGED PREVIEW</div></div>
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close track details">×</button>
+    </div>
+    <div class="modal-art"><img id="modalArt" alt="" /></div>
+    <div class="modal-license-grid">
+      <div class="modal-license"><span>MP3 LEASE</span><strong>$99.99</strong><small>Selected track • MP3 delivery</small><button type="button" data-license="mp3">SELECT MP3</button></div>
+      <div class="modal-license"><span>WAV LICENSE</span><strong>$300</strong><small>Selected track • WAV delivery</small><button type="button" data-license="wav">SELECT WAV</button></div>
+      <div class="modal-license"><span>TRACKOUTS / EXCLUSIVE</span><strong>$1,000</strong><small>Rights terms finalized before checkout</small><button type="button" data-license="exclusive">VIEW TERMS</button></div>
+    </div>
+    <div class="modal-note">Secure checkout is being connected to the live T Scott Productions Stripe account. The track you select is preserved as the order reference.</div>
+    <button class="modal-share" id="modalShare" type="button">SHARE THIS TRACK</button>
+  </div>
+</div>
+
+<div class="tsp-player" id="tspPlayer" aria-live="polite">
+  <div class="tsp-player-inner">
+    <div class="now-meta"><div class="now-label">NOW PLAYING • TSP</div><div class="now-title" id="nowTitle">Select a track</div></div>
+    <div class="now-progress"><span id="nowCurrent">0:00</span><input id="nowSeek" type="range" min="0" max="45" value="0" step=".1" aria-label="Track progress" /><span id="nowDuration">0:45</span></div>
+    <div class="now-controls"><button class="now-play" id="nowPlay" type="button">PLAY</button><button class="now-license" id="nowLicense" type="button">LICENSE</button></div>
+  </div>
+</div>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <a href="#store"><b>♫</b>BEATS</a>
+  <a href="#featured"><b>★</b>CREDITS</a>
+  <a href="#film"><b>▣</b>FILM</a>
+  <a href="#licensing"><b>$</b>LICENSE</a>
+</nav>
+<div class="toast" id="siteToast" role="status"></div>
 <footer>
   <div class="wrap">© TScott Productions. Producer • Songwriter • Executive Producer.</div>
 </footer>
@@ -1209,5 +1342,131 @@
   });
 </script>
 
+
+<script>
+(function(){
+  const cards=[...document.querySelectorAll('.track-card')];
+  const grid=document.getElementById('trackGrid')||document.querySelector('.track-grid');
+  const search=document.getElementById('trackSearch');
+  const sort=document.getElementById('trackSort');
+  const results=document.getElementById('storeResults');
+  const player=document.getElementById('tspPlayer');
+  const nowTitle=document.getElementById('nowTitle');
+  const nowPlay=document.getElementById('nowPlay');
+  const nowSeek=document.getElementById('nowSeek');
+  const nowCurrent=document.getElementById('nowCurrent');
+  const nowDuration=document.getElementById('nowDuration');
+  const nowLicense=document.getElementById('nowLicense');
+  const modal=document.getElementById('trackModal');
+  const modalClose=document.getElementById('modalClose');
+  const modalTitle=document.getElementById('modalTrackTitle');
+  const modalNo=document.getElementById('modalTrackNo');
+  const modalArt=document.getElementById('modalArt');
+  const modalShare=document.getElementById('modalShare');
+  const toast=document.getElementById('siteToast');
+  let activeCard=null, activeAudio=null, modalCard=null;
+
+  const metric=(name,data={})=>{ try{ if(window.va) window.va('event',{name,data}); }catch(e){} };
+  const time=s=>{ if(!Number.isFinite(s)) return '0:00'; const m=Math.floor(s/60),x=Math.floor(s%60); return m+':'+String(x).padStart(2,'0'); };
+  const trackData=card=>{
+    const no=(card.querySelector('.track-no')?.textContent||'').trim();
+    const title=(card.querySelector('h3')?.textContent||'Track').trim();
+    const audio=card.querySelector('audio');
+    const art=card.querySelector('.tsp-art img')?.src||'';
+    return {no,title,audio,art,slug:'track-'+no};
+  };
+  const tell=msg=>{toast.textContent=msg;toast.classList.add('show');clearTimeout(tell.t);tell.t=setTimeout(()=>toast.classList.remove('show'),2200);};
+
+  cards.forEach(card=>{
+    const d=trackData(card);
+    card.id=d.slug;
+    card.dataset.trackTitle=d.title.toLowerCase();
+    card.dataset.trackNo=d.no;
+    d.audio?.removeAttribute('controls');
+    if(!card.querySelector('.track-actions')){
+      const actions=document.createElement('div'); actions.className='track-actions';
+      const play=document.createElement('button'); play.type='button'; play.className='track-play'; play.textContent='▶ PLAY';
+      const share=document.createElement('button'); share.type='button'; share.className='track-share'; share.textContent='SHARE';
+      actions.append(play,share);
+      const license=card.querySelector('.license-row');
+      card.insertBefore(actions,license);
+      play.addEventListener('click',()=>toggleTrack(card));
+      share.addEventListener('click',()=>shareTrack(card));
+    }
+    const detail=card.querySelector('.track-detail-btn');
+    if(detail) detail.addEventListener('click',()=>openModal(card));
+    d.audio?.addEventListener('play',()=>setActive(card,true));
+    d.audio?.addEventListener('pause',()=>{ const btn=card.querySelector('.track-play'); if(btn) btn.textContent='▶ PLAY'; if(activeAudio===d.audio) nowPlay.textContent='PLAY'; });
+    d.audio?.addEventListener('timeupdate',()=>{ if(activeAudio!==d.audio) return; nowSeek.value=d.audio.currentTime||0; nowCurrent.textContent=time(d.audio.currentTime); nowDuration.textContent=time(d.audio.duration||45); });
+    d.audio?.addEventListener('loadedmetadata',()=>{ if(activeAudio===d.audio){nowSeek.max=d.audio.duration||45;nowDuration.textContent=time(d.audio.duration||45);} });
+    d.audio?.addEventListener('ended',()=>{card.classList.remove('is-playing');const btn=card.querySelector('.track-play');if(btn)btn.textContent='▶ PLAY';nowPlay.textContent='PLAY';});
+  });
+
+  function setActive(card,fromPlay){
+    const d=trackData(card);
+    cards.forEach(c=>{if(c!==card)c.classList.remove('is-playing');});
+    card.classList.add('is-playing');
+    activeCard=card;activeAudio=d.audio;
+    player.classList.add('active');document.body.classList.add('has-player');
+    nowTitle.textContent=d.no+' • '+d.title;
+    nowSeek.max=d.audio.duration||45;
+    card.querySelector('.track-play').textContent='❚❚ PAUSE';
+    nowPlay.textContent='PAUSE';
+    if(fromPlay) metric('track_play',{track:d.no,title:d.title});
+  }
+  function toggleTrack(card){
+    const a=trackData(card).audio;if(!a)return;
+    document.querySelectorAll('.track-card audio').forEach(x=>{if(x!==a)x.pause();});
+    if(a.paused){a.play().catch(()=>tell('Tap play again to start audio'));}else a.pause();
+  }
+  function openModal(card){
+    modalCard=card;const d=trackData(card);
+    modalTitle.textContent=d.title;modalNo.textContent='TSP TRACK '+d.no;
+    modalArt.src=d.art||('assets/images/tracks/'+d.no+'.webp?v=20260922sharp2');
+    modalArt.alt='TSP artwork for '+d.title;
+    modal.classList.add('open');document.body.style.overflow='hidden';
+    metric('track_detail_open',{track:d.no,title:d.title});
+  }
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
+  async function shareTrack(card){
+    const d=trackData(card);const url=location.origin+location.pathname+'#'+d.slug;
+    metric('track_share',{track:d.no,title:d.title});
+    if(navigator.share){try{await navigator.share({title:'TScott Productions — '+d.title,text:'Preview '+d.title+' by TScott Productions',url});return;}catch(e){}}
+    try{await navigator.clipboard.writeText(url);tell('Track link copied');}catch(e){location.hash=d.slug;}
+  }
+  function applyFilter(){
+    const q=(search?.value||'').trim().toLowerCase();let visible=0;
+    cards.forEach(c=>{const show=!q||c.dataset.trackTitle.includes(q)||c.dataset.trackNo.includes(q);c.hidden=!show;if(show)visible++;});
+    if(results)results.textContent=visible+' showing';
+  }
+  function applySort(){
+    if(!grid)return;const mode=sort?.value||'number';
+    const ordered=[...cards].sort((a,b)=>{
+      if(mode==='az')return a.dataset.trackTitle.localeCompare(b.dataset.trackTitle);
+      if(mode==='za')return b.dataset.trackTitle.localeCompare(a.dataset.trackTitle);
+      return Number(a.dataset.trackNo)-Number(b.dataset.trackNo);
+    });
+    ordered.forEach(c=>grid.appendChild(c));
+  }
+  search?.addEventListener('input',applyFilter);sort?.addEventListener('change',applySort);
+  nowPlay?.addEventListener('click',()=>{if(activeCard)toggleTrack(activeCard);});
+  nowSeek?.addEventListener('input',()=>{if(activeAudio)activeAudio.currentTime=Number(nowSeek.value);});
+  nowLicense?.addEventListener('click',()=>{if(activeCard)openModal(activeCard);});
+  modalClose?.addEventListener('click',closeModal);modal?.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+  modalShare?.addEventListener('click',()=>{if(modalCard)shareTrack(modalCard);});
+  modal?.querySelectorAll('[data-license]').forEach(btn=>btn.addEventListener('click',()=>{
+    if(!modalCard)return;const d=trackData(modalCard),tier=btn.dataset.license;
+    metric('license_interest',{track:d.no,title:d.title,tier});
+    if(tier==='exclusive'){closeModal();document.getElementById('licensing')?.scrollIntoView({behavior:'smooth'});tell('Review the Trackouts / Exclusive terms');return;}
+    tell('Secure '+tier.toUpperCase()+' checkout is being connected');
+  }));
+
+  if(location.hash && /^#track-\d{2}$/.test(location.hash)){
+    const target=document.querySelector(location.hash);
+    if(target)setTimeout(()=>{target.scrollIntoView({behavior:'smooth',block:'center'});target.style.boxShadow='0 0 0 2px var(--accent)';setTimeout(()=>target.style.boxShadow='',1800);},450);
+  }
+})();
+</script>
 </body>
 </html>
