@@ -131,16 +131,15 @@
       isolation:isolate;
     }
     .tsp-art img{
-      position:absolute;
       display:block;
-      width:500%;
-      height:700%;
-      max-width:none;
-      left:calc(var(--cover-col) * -100%);
-      top:calc(var(--cover-row) * -100%);
-      object-fit:fill;
+      width:100%;
+      height:100%;
+      max-width:100%;
+      object-fit:cover;
+      object-position:center;
       image-rendering:auto;
       filter:saturate(1.06) contrast(1.02);
+      transform:scale(1.005);
     }
     .tsp-cover-brand{
       position:absolute;
@@ -1464,25 +1463,65 @@ body.has-player{padding-bottom:76px}
 <script defer src="/_vercel/insights/script.js"></script>
 
 <script>
-  // Final 35-cover neon TSP artwork sheet — each card displays one exact cover tile.
+  // Final 35 neon TSP covers created for the storefront.
+  const NEON_COVERS = [
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/0a5fa0910d6c093dc34524d6177d7621eb56d91c2c20692e49d75d9d0a01b734.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/16b688af79ca3ec8eb7e03680b6803e90b5129b10306f100996aa45388ba8def.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/398f9a18a4d766e29ecfc4639993b3ac6841341b303d68545192b5eecfcde01f.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/b430bbde70ae533f69fb7fbe98b88db104018b638ca3e39bbec95266c8ac3d9d.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/6ed7becbc680dc1c6a7b7b9769ee19e2b33859d443a15f2b2cd9fdce0a956ae7.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/18d7f3e151d338c5d7c18d1edce242044ed836a1382e1911a1334f11d314ec06.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/db6a98661e2e7111bdd222051e4ac62d85233797f0cdbdf78257e557fa08ea7f.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/dc3f25b370183ff23ad44374c556d9f3b326e83cb0c66ca8573a2fffe8071c37.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/8b916dd37019c9969f8d081db12f8088ceb4e48e2a1c5cb0bb3d31b9f6fe06ee.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/863a0570e7e648905e92eb5f83ceb9a5ed811e79c4acf950048a18ebe598524b.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/7b7dc021e0307272ec1fc8c4a8b8cf21b5ce185d16ba7f5e9df3870bd13ea171.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/8575049deac9d828225e1822fbeb924c1b985cee11b99120378b54580a8c62fb.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/d9d1ea4385320acc334fc8c34eedeb5f99b710740830d837a38df7d609d69f9f.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/8a5ba20c2ffdcf6da72662c05023e6eadb3d4c14ed09838b894a397aa103766c.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/e442e6f52f213f64a6403940a63dcfa003a327d97e168d04f52a2e8da6d9d920.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/0f514f622add74ed25b3f43a8ec45c916a96f3d1854dc3e71b0f746311e81c4f.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/01e1eee867c68119f6e29241e2786eb1b09a771e3bc97d058eada61316f59bd6.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/42e0090c1fab5a08423ad5440c6af610940cddbbb621fe59fe614d5a70f3892e.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/8e17b618a4c987db8a49ce97a71eb426bfae73b30b1a56c065afa8526121d32d.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/5b7a36a7a99ebd4d9b149646e21936ce96260414226fb8ba142d00b940b0e221.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/1be9fb9e6315736d7cb0ce03e7adb1c93dfa61a6a4d123cac0c1a461eac3a7b7.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/9835d72652103de0150225c7bb1a1125f4e83e95d9ca2c2a30233c8ae957025e.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/f71c1b15635e6d4e839bf78da2fdf703c9ec1103aa912546354df9f05667356b.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/5795fe8a9b9d824ccb28edf6a96aa2745e9256dc67f5aa3664276be9087c6237.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/39039da06af677bf9ee1989509579f7497476eed2b2f8ac46526ac0d6e5a5dbf.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/90d341a3345efd5e72fd40cd9526b55584403fd715eea9c212f19ecc06d264aa.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/fab7382dbb9551731bb75a0faa86d7a542f2e5193d2a056a8012082293d79882.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/857f8027776127b6eb44428b8784a4496661d8e3f3eb612e51a6e482d4f54af2.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/173f02747d24d6649dfb8353a8698db3c994284023a801f3310d03da0474e512.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/d8c5f077feb9d1a0249f74ac39bc231467d37032ec0ee819f321630ee8c09ab1.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/65f51ee781c2cf9105b73a340001fc5cd0201d502495117ac8b4a2ad92348266.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/f95b28a1a65b299ea5c89551753cbf6efea52f1dfc97615513e2c44a98a6c264.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/3118da357c75909e51066f8cecf5a886ee21c3df519186a5d8937f3bc5935524.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/b666b68c7562f78e3e1dc357f5b494c337c35e370c40e3bf38c5a52746e7abff.jpg",
+  "https://cdn.openart.ai/openart-uploads/production/attachment-transfers/631d5d1829b86a8ad792c64c0330ecab8d78204ed727971d8d8532d43b82bed1.jpg"
+];
   document.querySelectorAll('.track-card').forEach((card, i) => {
     if (card.querySelector('.tsp-art')) return;
     const art = document.createElement('div');
     art.className = 'tsp-art';
+    const title = (card.querySelector('h3')?.textContent || ('Track ' + (i + 1))).trim();
     art.setAttribute('role', 'img');
-    art.setAttribute('aria-label', 'TSP Productions 3D cover artwork ' + (i + 1));
+    art.setAttribute('aria-label', title + ' neon TSP cover artwork');
 
     const img = document.createElement('img');
-    const col = i % 5;
-    const row = Math.floor(i / 5);
-    card.dataset.artIndex = String(i);
-    img.src = 'assets/images/tsp-covers-sprite.webp?v=20260922final35';
+    const n = String(i + 1).padStart(2, '0');
+    img.src = NEON_COVERS[i];
     img.alt = '';
+    img.width = 900;
+    img.height = 900;
     img.loading = i < 6 ? 'eager' : 'lazy';
     img.decoding = 'async';
     if (i < 6) img.fetchPriority = 'high';
-    img.style.setProperty('--cover-col', String(col));
-    img.style.setProperty('--cover-row', String(row));
+    img.onerror = () => {
+      img.onerror = null;
+      img.src = 'assets/images/tracks/' + n + '.webp?v=20260922fallback';
+    };
 
     art.appendChild(img);
     card.insertBefore(art, card.firstChild);
