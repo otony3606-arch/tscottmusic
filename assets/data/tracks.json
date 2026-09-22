@@ -1,0 +1,317 @@
+[
+  {
+    "file": "01-sex-on-the-beach-1.mp3",
+    "number": "01",
+    "title": "Sex on the Beach #1",
+    "bpm": 144,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "02-hear-you.mp3",
+    "number": "02",
+    "title": "Hear You",
+    "bpm": 172,
+    "genre": "R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "03-after-hours.mp3",
+    "number": "03",
+    "title": "After Hours",
+    "bpm": 117,
+    "genre": "R&B",
+    "mood": "Confident",
+    "type": "Beat"
+  },
+  {
+    "file": "04-top-floor.mp3",
+    "number": "04",
+    "title": "Top Floor",
+    "bpm": 89,
+    "genre": "Hip-Hop / Trap",
+    "mood": "Late Night",
+    "type": "Beat"
+  },
+  {
+    "file": "05-no-ceiling.mp3",
+    "number": "05",
+    "title": "No Ceiling",
+    "bpm": 123,
+    "genre": "Hip-Hop / Trap",
+    "mood": "Dark",
+    "type": "Beat"
+  },
+  {
+    "file": "06-velvet-motion.mp3",
+    "number": "06",
+    "title": "Velvet Motion",
+    "bpm": 112,
+    "genre": "R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "07-midnight-text.mp3",
+    "number": "07",
+    "title": "Midnight Text",
+    "bpm": 117,
+    "genre": "R&B",
+    "mood": "Confident",
+    "type": "Beat"
+  },
+  {
+    "file": "08-on-the-run.mp3",
+    "number": "08",
+    "title": "On the Run",
+    "bpm": 129,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "09-clean-getaway.mp3",
+    "number": "09",
+    "title": "Clean Getaway",
+    "bpm": 144,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "10-love-district.mp3",
+    "number": "10",
+    "title": "Love District",
+    "bpm": 117,
+    "genre": "R&B",
+    "mood": "Confident",
+    "type": "Beat"
+  },
+  {
+    "file": "11-stargate.mp3",
+    "number": "11",
+    "title": "Stargate",
+    "bpm": 152,
+    "genre": "Pop / Crossover",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "12-honey-pack.m4a",
+    "number": "12",
+    "title": "Honey Pack",
+    "bpm": 144,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "13-love-still-matters.mp3",
+    "number": "13",
+    "title": "Love Still Matters",
+    "bpm": 112,
+    "genre": "R&B",
+    "mood": "Confident",
+    "type": "Beat"
+  },
+  {
+    "file": "14-last-call.mp3",
+    "number": "14",
+    "title": "Last Call",
+    "bpm": 152,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "15-crown-talk.mp3",
+    "number": "15",
+    "title": "Crown Talk",
+    "bpm": 152,
+    "genre": "Hip-Hop / Trap",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "16-high-stakes.mp3",
+    "number": "16",
+    "title": "High Stakes",
+    "bpm": 144,
+    "genre": "Hip-Hop / Trap",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "17-body-language.mp3",
+    "number": "17",
+    "title": "Body Language",
+    "bpm": 117,
+    "genre": "R&B",
+    "mood": "Dark",
+    "type": "Beat"
+  },
+  {
+    "file": "18-diamond-district.mp3",
+    "number": "18",
+    "title": "Diamond District",
+    "bpm": 136,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "19-street-chemistry.mp3",
+    "number": "19",
+    "title": "Street Chemistry",
+    "bpm": 117,
+    "genre": "Hip-Hop / Trap",
+    "mood": "Confident",
+    "type": "Beat"
+  },
+  {
+    "file": "20-six-figures.mp3",
+    "number": "20",
+    "title": "Six Figures",
+    "bpm": 89,
+    "genre": "Hip-Hop / R&B",
+    "mood": "Late Night",
+    "type": "Beat"
+  },
+  {
+    "file": "21-money-grind.mp3",
+    "number": "21",
+    "title": "Money Grind",
+    "bpm": 129,
+    "genre": "Hip-Hop / Trap",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "22-pushin-away.mp3",
+    "number": "22",
+    "title": "Pushin Away",
+    "bpm": 144,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "23-maybe.mp3",
+    "number": "23",
+    "title": "Maybe",
+    "bpm": 129,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "24-tmx-wstsp-ver2.mp3",
+    "number": "24",
+    "title": "TMX WSTSP Ver. 2",
+    "bpm": 152,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "25-the-silo-intro-freestyle.mp3",
+    "number": "25",
+    "title": "The Silo (Intro Freestyle)",
+    "bpm": 144,
+    "genre": "Hip-Hop / Trap",
+    "mood": "High Energy",
+    "type": "Freestyle"
+  },
+  {
+    "file": "26-project-11.mp3",
+    "number": "26",
+    "title": "Project 11",
+    "bpm": 92,
+    "genre": "Hip-Hop / Trap",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "27-project-baby.mp3",
+    "number": "27",
+    "title": "Project Baby",
+    "bpm": 123,
+    "genre": "Hip-Hop / Trap",
+    "mood": "Dark",
+    "type": "Beat"
+  },
+  {
+    "file": "28-only-if-u-poppin.mp3",
+    "number": "28",
+    "title": "Only If U Poppin",
+    "bpm": 89,
+    "genre": "Hip-Hop / Trap",
+    "mood": "Late Night",
+    "type": "Beat"
+  },
+  {
+    "file": "29-tha-creed.mp3",
+    "number": "29",
+    "title": "Tha Creed",
+    "bpm": 103,
+    "genre": "Hip-Hop / Trap",
+    "mood": "Late Night",
+    "type": "Beat"
+  },
+  {
+    "file": "30-kingship.mp3",
+    "number": "30",
+    "title": "Kingship",
+    "bpm": 99,
+    "genre": "Hip-Hop / R&B",
+    "mood": "Late Night",
+    "type": "Beat"
+  },
+  {
+    "file": "31-waiting-for-your-love.mp3",
+    "number": "31",
+    "title": "Waiting for Your Love",
+    "bpm": 123,
+    "genre": "R&B",
+    "mood": "Confident",
+    "type": "Beat"
+  },
+  {
+    "file": "32-after-dark.mp3",
+    "number": "32",
+    "title": "After Dark",
+    "bpm": 136,
+    "genre": "Hip-Hop / R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "33-midnight-pressure.mp3",
+    "number": "33",
+    "title": "Midnight Pressure",
+    "bpm": 123,
+    "genre": "R&B",
+    "mood": "High Energy",
+    "type": "Beat"
+  },
+  {
+    "file": "34-come-alive.mp3",
+    "number": "34",
+    "title": "Come Alive",
+    "bpm": 89,
+    "genre": "Pop / Crossover",
+    "mood": "Late Night",
+    "type": "Beat"
+  },
+  {
+    "file": "35-neon-motion.mp3",
+    "number": "35",
+    "title": "Neon Motion",
+    "bpm": 92,
+    "genre": "Pop / Crossover",
+    "mood": "High Energy",
+    "type": "Beat"
+  }
+]
