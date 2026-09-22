@@ -239,23 +239,6 @@ body.has-player{padding-bottom:76px}
 .license-buy-btn{width:100%;margin-top:16px;padding:12px 14px;border:1px solid var(--accent);border-radius:11px;background:var(--accent);color:#090909;font-weight:900;cursor:pointer;transition:transform .16s ease,filter .16s ease}
 .license-buy-btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
 .modal-license [data-action="terms"]{background:#0b0b0b;color:#fff;border-color:#494949}
-
-/* Final Site Finish — 2026-09-22 */
-.hero{overflow:hidden;position:relative;background:radial-gradient(circle at 80% 10%,#3d3014 0,transparent 35%),radial-gradient(circle at 14% 85%,rgba(215,177,90,.12),transparent 28%),#090909}
-.hero:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 90deg,transparent,rgba(215,177,90,.08),transparent 30%);animation:heroSweep 14s linear infinite;pointer-events:none}
-@keyframes heroSweep{to{transform:rotate(360deg)}}
-.hero-inner{position:relative;z-index:1}.hero-status{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 0}.hero-status span{border:1px solid #4b4028;background:rgba(13,13,13,.75);color:#e4c879;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900;letter-spacing:.06em}
-.hero-photo-wrap{position:relative;justify-self:end;width:min(100%,470px);padding:22px}.hero-photo-wrap .hero-photo{width:100%;position:relative;z-index:2}
-.hero-float{position:absolute;width:112px;aspect-ratio:4/3;border:1px solid #5b4b29;border-radius:13px;overflow:hidden;z-index:3;box-shadow:0 18px 35px rgba(0,0,0,.5);animation:floatArt 5.8s ease-in-out infinite}.hero-float img{width:100%;height:100%;object-fit:cover;display:block}.hero-float-a{left:-22px;top:10%;transform:rotate(-7deg)}.hero-float-b{right:-28px;top:48%;transform:rotate(7deg);animation-delay:-2s}.hero-float-c{left:2px;bottom:0;transform:rotate(5deg);animation-delay:-4s}@keyframes floatArt{50%{translate:0 -9px}}
-.credentials-section{background:linear-gradient(180deg,#0b0b0b,#10100e)}.credentials-head{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end}.credentials-head p{color:var(--muted);margin:0}.credential-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.credential-stats div{border:1px solid #3c3423;background:#11100d;border-radius:14px;padding:16px}.credential-stats strong{display:block;color:var(--accent);font-size:20px}.credential-stats span{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-top:3px}.cred-wall{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:20px 0}.cred-wall a{display:block;aspect-ratio:1/1;border:1px solid #333;border-radius:13px;overflow:hidden;background:#0b0b0b}.cred-wall img{width:100%;height:100%;object-fit:cover;display:block;transition:.2s ease}.cred-wall a:hover img{transform:scale(1.04);filter:brightness(1.08)}.cred-actions{display:flex;gap:10px;flex-wrap:wrap}
-.store-tools{flex-wrap:wrap}.store-search{flex:1 1 320px}.store-sort{min-width:138px}.filter-clear{border:1px solid #454545;background:#0a0a0a;color:#fff;border-radius:12px;padding:12px 14px;font-weight:900;cursor:pointer}.filter-clear:hover{border-color:var(--accent);color:var(--accent)}
-.track-meta{display:flex;gap:6px;flex-wrap:wrap;margin:-4px 0 12px}.track-meta span{font-size:9px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;border:1px solid #3d3525;background:#12100c;color:#d9c182;border-radius:999px;padding:5px 7px}
-.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:start}.contact-pills{display:flex;gap:8px;flex-wrap:wrap}.contact-pills span{border:1px solid #3d3525;border-radius:999px;padding:7px 10px;color:#d9c182;font-size:11px;font-weight:800}.contact-direct{margin:28px 0 16px;padding:16px;border:1px solid #333;border-radius:14px;background:#101010}.contact-direct small{display:block;color:var(--muted);font-size:10px;letter-spacing:.1em}.contact-direct a{font-size:18px;font-weight:900;color:var(--accent)}.connect-actions{display:flex;gap:8px;flex-wrap:wrap}.connect-actions button,.connect-actions a{border:1px solid #4b4028;background:#15120c;color:#e5c777;border-radius:10px;padding:10px 12px;font-size:11px;font-weight:900;cursor:pointer}
-.contact-form{border:1px solid #3c3423;background:#111;border-radius:20px;padding:22px}.contact-form label{display:grid;gap:6px;color:#d8d8d8;font-size:12px;font-weight:800}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.contact-form input,.contact-form select,.contact-form textarea{width:100%;background:#080808;color:#fff;border:1px solid #353535;border-radius:10px;padding:12px;font:inherit;outline:none}.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(215,177,90,.09)}.contact-submit{width:100%;margin-top:14px;border:0;background:var(--accent);color:#090909;border-radius:11px;padding:13px;font-weight:900;cursor:pointer}.contact-help{color:var(--muted);font-size:11px;margin:10px 0 0}
-@media(max-width:900px){.credentials-head,.contact-grid{grid-template-columns:1fr}.credential-stats{grid-template-columns:repeat(2,1fr)}.cred-wall{grid-template-columns:repeat(3,1fr)}.hero-photo-wrap{justify-self:center}.hero-float{width:90px}}
-@media(max-width:620px){.hero-float{width:72px}.hero-float-a{left:-5px}.hero-float-b{right:-5px}.credential-stats{grid-template-columns:1fr 1fr}.cred-wall{grid-template-columns:repeat(3,1fr)}.form-row{grid-template-columns:1fr}.store-tools{display:grid;grid-template-columns:1fr 1fr}.store-search{grid-column:1/-1}.filter-clear{width:100%}.store-results{text-align:right;align-self:center}}
-@media(prefers-reduced-motion:reduce){.hero:before,.hero-float{animation:none}}
-
 </style>
 
   <meta property="og:type" content="website" />
@@ -292,7 +275,6 @@ body.has-player{padding-bottom:76px}
       <a href="#film">Film</a>
       <a href="#licensing">Licensing</a>
       <a href="#services">Additional Services</a>
-      <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
@@ -303,22 +285,14 @@ body.has-player{padding-bottom:76px}
       <div class="eyebrow">Producer • Songwriter • Executive Producer</div>
       <h1>Major records. Film placements. Music built to move.</h1>
       <p class="sub">TScott Productions represents decades of work across R&amp;B, pop, film soundtracks, executive production, studio leadership and new music available for licensing.</p>
-      <div class="hero-status">
-        <span>35 TRACKS LIVE</span><span>STRIPE CHECKOUT</span><span>45-SEC TAGGED PREVIEWS</span>
-      </div>
       <div class="buttons">
         <a class="btn primary" href="#store">Shop Music</a>
         <a class="btn" href="#featured">View Featured Credits</a>
         <a class="btn" href="#licensing">License Music</a>
       </div>
     </div>
-    <div class="hero-photo-wrap">
-      <div class="hero-float hero-float-a"><img src="assets/images/tracks/01.webp?v=20260922sharp2" alt="" /></div>
-      <div class="hero-float hero-float-b"><img src="assets/images/tracks/18.webp?v=20260922sharp2" alt="" /></div>
-      <div class="hero-float hero-float-c"><img src="assets/images/tracks/30.webp?v=20260922sharp2" alt="" /></div>
-      <div class="hero-photo">
+    <div class="hero-photo">
       <img src="assets/images/tony-hero-hq.webp?v=20260922sharp2" width="1000" height="1250" alt="TScott Productions portrait" loading="eager" decoding="async" fetchpriority="high" />
-      </div>
     </div>
   </div>
 </header>
@@ -332,23 +306,6 @@ body.has-player{padding-bottom:76px}
   </div>
 </div>
 
-<section id="credentials" class="credentials-section">
-  <div class="wrap">
-    <div class="credentials-head">
-      <div><div class="eyebrow">PRODUCER CREDIBILITY</div><h2>Records, Film, Studio Leadership.</h2></div>
-      <p>Decades of production work across commercial records, soundtrack placements, executive production and studio leadership—all connected to the music available here.</p>
-    </div>
-    <div class="credential-stats">
-      <div><strong>35</strong><span>Current tracks</span></div>
-      <div><strong>3</strong><span>Live license tiers</span></div>
-      <div><strong>Film + TV</strong><span>Placement experience</span></div>
-      <div><strong>Major Records</strong><span>Producer / writer credits</span></div>
-    </div>
-    <div class="cred-wall" id="credWall" aria-label="Selected TScott Productions credit artwork"></div>
-    <div class="cred-actions"><a class="btn primary" href="#featured">Explore Credits</a><a class="btn" href="#film">View Film Placements</a><a class="btn" href="#contact">Work With T-Scott</a></div>
-  </div>
-</section>
-
 <section id="store">
   <div class="wrap">
     <div class="store-intro">
@@ -360,20 +317,15 @@ body.has-player{padding-bottom:76px}
       <div class="store-count">35 TRACKS • 3 LICENSE OPTIONS</div>
     </div>
     
-<div class="store-tools" role="search" aria-label="Search and filter music catalog">
+<div class="store-tools" role="search" aria-label="Search music catalog">
   <div class="store-search">
     <input id="trackSearch" type="search" placeholder="Search 35 tracks by title or number…" autocomplete="off" aria-label="Search tracks" />
   </div>
-  <select id="genreFilter" class="store-sort" aria-label="Filter by genre"><option value="">All genres</option></select>
-  <select id="moodFilter" class="store-sort" aria-label="Filter by mood"><option value="">All moods</option></select>
-  <select id="bpmFilter" class="store-sort" aria-label="Filter by BPM">
-    <option value="">All BPM</option><option value="slow">Under 90</option><option value="mid">90–109</option><option value="up">110–129</option><option value="fast">130+</option>
-  </select>
-  <select id="typeFilter" class="store-sort" aria-label="Filter by type"><option value="">All types</option></select>
   <select id="trackSort" class="store-sort" aria-label="Sort tracks">
-    <option value="number">Track #</option><option value="az">Title A–Z</option><option value="za">Title Z–A</option><option value="bpmup">BPM ↑</option><option value="bpmdown">BPM ↓</option>
+    <option value="number">Track #</option>
+    <option value="az">Title A–Z</option>
+    <option value="za">Title Z–A</option>
   </select>
-  <button id="clearFilters" class="filter-clear" type="button">CLEAR</button>
   <div id="storeResults" class="store-results">35 showing</div>
 </div>
 <div class="track-grid" id="trackGrid">
@@ -1370,36 +1322,6 @@ body.has-player{padding-bottom:76px}
 </section>
 
 
-<section id="contact">
-  <div class="wrap contact-grid">
-    <div class="contact-copy">
-      <div class="eyebrow">WORK WITH T-SCOTT</div>
-      <h2>Start the conversation.</h2>
-      <p class="section-copy">Use this for production, licensing, label/publisher inquiries, session booking, custom music or general business.</p>
-      <div class="contact-pills">
-        <span>Production</span><span>Licensing</span><span>Sessions</span><span>Label / Publisher</span><span>Custom Music</span>
-      </div>
-      <div class="contact-direct">
-        <small>DIRECT EMAIL</small>
-        <a href="mailto:otony3606@gmail.com">otony3606@gmail.com</a>
-      </div>
-      <div class="connect-actions">
-        <button type="button" id="shareSite">SHARE TSP WEBSITE</button>
-        <button type="button" id="copySite">COPY WEBSITE LINK</button>
-        <a href="mailto:otony3606@gmail.com?subject=TScott%20Productions%20Inquiry">EMAIL T-SCOTT</a>
-      </div>
-    </div>
-    <form class="contact-form" id="contactForm">
-      <div class="form-row"><label>Name<input id="contactName" required autocomplete="name" /></label><label>Email<input id="contactEmail" type="email" required autocomplete="email" /></label></div>
-      <div class="form-row"><label>Company / Artist<input id="contactCompany" autocomplete="organization" /></label><label>Inquiry<select id="contactType"><option>Production</option><option>Music Licensing</option><option>Book a Session</option><option>Label / Publisher</option><option>Custom Music</option><option>General Business</option></select></label></div>
-      <div class="form-row"><label>Budget / Range<select id="contactBudget"><option>Not sure yet</option><option>Under $500</option><option>$500–$1,500</option><option>$1,500–$5,000</option><option>$5,000+</option></select></label><label>Preferred timing<input id="contactTiming" placeholder="e.g. This week / October" /></label></div>
-      <label>Tell me about the project<textarea id="contactMessage" rows="6" required placeholder="Track, artist, release plan, session needs, or licensing details…"></textarea></label>
-      <button class="contact-submit" type="submit">START INQUIRY</button>
-      <p class="contact-help">Submitting opens a pre-addressed email in your device’s mail app so you can review the message before sending.</p>
-    </form>
-  </div>
-</section>
-
 <section id="services">
   <div class="wrap">
     <h2>Additional Services</h2>
@@ -1453,7 +1375,7 @@ body.has-player{padding-bottom:76px}
 </nav>
 <div class="toast" id="siteToast" role="status"></div>
 <footer>
-  <div class="wrap">© TScott Productions. Producer • Songwriter • Executive Producer. &nbsp;•&nbsp; <a href="#contact">Business Inquiries</a> &nbsp;•&nbsp; <a href="#exclusive-terms">Exclusive License Terms</a></div>
+  <div class="wrap">© TScott Productions. Producer • Songwriter • Executive Producer.</div>
 </footer>
 
 <script>
@@ -1499,11 +1421,6 @@ body.has-player{padding-bottom:76px}
   const grid=document.getElementById('trackGrid')||document.querySelector('.track-grid');
   const search=document.getElementById('trackSearch');
   const sort=document.getElementById('trackSort');
-  const genreFilter=document.getElementById('genreFilter');
-  const moodFilter=document.getElementById('moodFilter');
-  const bpmFilter=document.getElementById('bpmFilter');
-  const typeFilter=document.getElementById('typeFilter');
-  const clearFilters=document.getElementById('clearFilters');
   const results=document.getElementById('storeResults');
   const player=document.getElementById('tspPlayer');
   const nowTitle=document.getElementById('nowTitle');
@@ -1531,24 +1448,6 @@ body.has-player{padding-bottom:76px}
     return {no,title,audio,art,slug:'track-'+no};
   };
   const tell=msg=>{toast.textContent=msg;toast.classList.add('show');clearTimeout(tell.t);tell.t=setTimeout(()=>toast.classList.remove('show'),2200);};
-  const addOption=(select,value)=>{if(!select||!value||[...select.options].some(o=>o.value===value))return;const o=document.createElement('option');o.value=value;o.textContent=value;select.appendChild(o);};
-  async function loadCatalogMetadata(){
-    try{
-      const res=await fetch('assets/data/tracks.json?v=20260922',{cache:'no-store'});
-      if(!res.ok) return;
-      const rows=await res.json();
-      rows.forEach(row=>{
-        const card=cards.find(c=>c.dataset.trackNo===String(row.number).padStart(2,'0')); if(!card)return;
-        card.dataset.genre=row.genre||'';card.dataset.mood=row.mood||'';card.dataset.bpm=row.bpm||'';card.dataset.type=row.type||'';
-        addOption(genreFilter,row.genre);addOption(moodFilter,row.mood);addOption(typeFilter,row.type);
-        let meta=card.querySelector('.track-meta');
-        if(!meta){meta=document.createElement('div');meta.className='track-meta';const actions=card.querySelector('.track-actions');card.insertBefore(meta,actions||card.querySelector('.license-row'));}
-        meta.innerHTML=[row.genre,row.mood,row.bpm?row.bpm+' BPM':null,row.type].filter(Boolean).map(x=>'<span>'+x+'</span>').join('');
-      });
-      [genreFilter,moodFilter,typeFilter].forEach(s=>{if(s){const first=s.options[0];const rest=[...s.options].slice(1).sort((a,b)=>a.text.localeCompare(b.text));s.replaceChildren(first,...rest);}});
-      applyFilter();
-    }catch(e){}
-  }
   const checkoutLinks={
     mp3:'https://buy.stripe.com/dRm5kw433gmg1CEgBg2oE00',
     wav:'https://buy.stripe.com/14A9AM2YZ4Dya9aet82oE01',
@@ -1624,33 +1523,20 @@ body.has-player{padding-bottom:76px}
     try{await navigator.clipboard.writeText(url);tell('Track link copied');}catch(e){location.hash=d.slug;}
   }
   function applyFilter(){
-    const q=(search?.value||'').trim().toLowerCase();
-    const genre=genreFilter?.value||'', mood=moodFilter?.value||'', type=typeFilter?.value||'', band=bpmFilter?.value||'';
-    let visible=0;
-    cards.forEach(c=>{
-      const bpm=Number(c.dataset.bpm||0);
-      const bpmOK=!band||(band==='slow'&&bpm&&bpm<90)||(band==='mid'&&bpm>=90&&bpm<=109)||(band==='up'&&bpm>=110&&bpm<=129)||(band==='fast'&&bpm>=130);
-      const show=(!q||c.dataset.trackTitle.includes(q)||c.dataset.trackNo.includes(q))&&(!genre||c.dataset.genre===genre)&&(!mood||c.dataset.mood===mood)&&(!type||c.dataset.type===type)&&bpmOK;
-      c.hidden=!show;if(show)visible++;
-    });
+    const q=(search?.value||'').trim().toLowerCase();let visible=0;
+    cards.forEach(c=>{const show=!q||c.dataset.trackTitle.includes(q)||c.dataset.trackNo.includes(q);c.hidden=!show;if(show)visible++;});
     if(results)results.textContent=visible+' showing';
-    metric('catalog_filter',{search:q||'none',genre:genre||'all',mood:mood||'all',bpm:band||'all',type:type||'all',visible});
   }
   function applySort(){
     if(!grid)return;const mode=sort?.value||'number';
     const ordered=[...cards].sort((a,b)=>{
       if(mode==='az')return a.dataset.trackTitle.localeCompare(b.dataset.trackTitle);
       if(mode==='za')return b.dataset.trackTitle.localeCompare(a.dataset.trackTitle);
-      if(mode==='bpmup')return (Number(a.dataset.bpm)||999)-(Number(b.dataset.bpm)||999);
-      if(mode==='bpmdown')return (Number(b.dataset.bpm)||0)-(Number(a.dataset.bpm)||0);
       return Number(a.dataset.trackNo)-Number(b.dataset.trackNo);
     });
     ordered.forEach(c=>grid.appendChild(c));
   }
   search?.addEventListener('input',applyFilter);sort?.addEventListener('change',applySort);
-  [genreFilter,moodFilter,bpmFilter,typeFilter].forEach(s=>s?.addEventListener('change',applyFilter));
-  clearFilters?.addEventListener('click',()=>{if(search)search.value='';[genreFilter,moodFilter,bpmFilter,typeFilter].forEach(s=>{if(s)s.value='';});if(sort)sort.value='number';applySort();applyFilter();});
-  loadCatalogMetadata();
   nowPlay?.addEventListener('click',()=>{if(activeCard)toggleTrack(activeCard);});
   nowSeek?.addEventListener('input',()=>{if(activeAudio)activeAudio.currentTime=Number(nowSeek.value);});
   nowLicense?.addEventListener('click',()=>{if(activeCard)openModal(activeCard);});
@@ -1670,26 +1556,7 @@ body.has-player{padding-bottom:76px}
     checkoutFor(btn.dataset.tier,chosen);
   }));
 
-
-  const credWall=document.getElementById('credWall');
-  if(credWall){
-    const source=[...document.querySelectorAll('.credit-cover-link,.exec-cover-link,.film-cover-link')].slice(0,6);
-    source.forEach(a=>{const clone=a.cloneNode(true);clone.querySelector('img')?.removeAttribute('width');clone.querySelector('img')?.removeAttribute('height');credWall.appendChild(clone);});
-  }
-  const siteUrl=location.origin+location.pathname;
-  document.getElementById('shareSite')?.addEventListener('click',async()=>{metric('site_share',{});if(navigator.share){try{await navigator.share({title:'TScott Productions',text:'TScott Productions — beats, credits and music licensing',url:siteUrl});return;}catch(e){}}try{await navigator.clipboard.writeText(siteUrl);tell('Website link copied');}catch(e){}});
-  document.getElementById('copySite')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(siteUrl);tell('Website link copied');metric('site_link_copy',{});}catch(e){}});
-  document.getElementById('contactForm')?.addEventListener('submit',e=>{
-    e.preventDefault();
-    const name=document.getElementById('contactName')?.value||'', email=document.getElementById('contactEmail')?.value||'', company=document.getElementById('contactCompany')?.value||'', type=document.getElementById('contactType')?.value||'Business', budget=document.getElementById('contactBudget')?.value||'', timing=document.getElementById('contactTiming')?.value||'', message=document.getElementById('contactMessage')?.value||'';
-    const subject='TScott Productions — '+type+' inquiry from '+name;
-    const body=['Name: '+name,'Email: '+email,'Company / Artist: '+company,'Inquiry: '+type,'Budget: '+budget,'Timing: '+timing,'','Project details:',message,'','Sent from '+siteUrl].join('\n');
-    metric('contact_inquiry_start',{type,budget});
-    location.href='mailto:otony3606@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-  });
-  let maxScroll=0;window.addEventListener('scroll',()=>{const d=document.documentElement;const pct=Math.round((d.scrollTop/(d.scrollHeight-d.clientHeight))*100)||0;if(pct>=75&&maxScroll<75){maxScroll=75;metric('scroll_depth',{percent:75});}else if(pct>=50&&maxScroll<50){maxScroll=50;metric('scroll_depth',{percent:50});}else if(pct>=25&&maxScroll<25){maxScroll=25;metric('scroll_depth',{percent:25});}},{passive:true});
-
-    const purchase=new URLSearchParams(location.search).get('purchase');
+  const purchase=new URLSearchParams(location.search).get('purchase');
   if(purchase === 'success') setTimeout(()=>tell('Payment complete — thank you. TScott Productions has your order.'),350);
 
   if(location.hash && /^#track-\d{2}$/.test(location.hash)){
